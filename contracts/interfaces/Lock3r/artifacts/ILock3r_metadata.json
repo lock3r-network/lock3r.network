@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isLocker",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "workReceipt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/interfaces/Lock3r/ILock3r.sol": "ILock3r"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/Lock3r/ILock3r.sol": {
+			"keccak256": "0x0e23f2686dd8a4cedb96138cdd04573b3515975615162e0f80d36e2b18e90573",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://200bbe8c62b2802eea7965a7280547bdd7e06379576b0e14f597d0f3deb32400",
+				"dweb:/ipfs/QmXa8Wdosutf4imcJntUB1NKzzMcFiRqF9fqnKkT5ZPuga"
+			]
+		}
+	},
+	"version": 1
+}

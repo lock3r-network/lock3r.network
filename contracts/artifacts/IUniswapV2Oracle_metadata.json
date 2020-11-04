@@ -1,0 +1,91 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountIn",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenOut",
+						"type": "address"
+					}
+				],
+				"name": "consult",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountOut",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rV1Helper.sol": "IUniswapV2Oracle"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/math/SafeMath.sol": {
+			"keccak256": "0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5",
+				"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV"
+			]
+		},
+		"localhost/Lock3rV1Helper.sol": {
+			"keccak256": "0x49bec15248ec8050f4c1190170ae83b2ed783c590e95612564ceb92ad95a965b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://08c01d506b4b5542cc9ac5db0d6cbc8cbf2b5d612e018ddcb126ca3a777652c3",
+				"dweb:/ipfs/QmZGC1U19Z6MMfKkmivjXbjhTkpJkLhU6sUjJVbsfqn1ko"
+			]
+		},
+		"localhost/interfaces/IChainLinkFeed.sol": {
+			"keccak256": "0xe9417be751de64411c450c1c87ca29fdbe0c94460fe966b3d841d1c10118013f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://45755f05ac9901097ffe18208a492ee99feb719b60f5be42f91747f3c1d8006e",
+				"dweb:/ipfs/QmaxTo8jEGBAKvuUtfqas1aNz82jxdb8zV8j9qUanqGHFY"
+			]
+		}
+	},
+	"version": 1
+}

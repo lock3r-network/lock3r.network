@@ -1,0 +1,102 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "Lockeer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					}
+				],
+				"name": "bonds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBonded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "Lockeer",
+						"type": "address"
+					}
+				],
+				"name": "votes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rV1Helper.sol": "ILocke3rV1"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rV1Helper.sol": {
+			"keccak256": "0x46176858a224cd87ec5a4e0d1d1b463afa75497c0d67c72d014b243099034882",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2b8f0459ec98fe6734b5a5cd3918437a3745832645c252cd49d889ba9b62fc04",
+				"dweb:/ipfs/QmSNT4UZU58gaStxRWxmEWaymZ2fcMkwX7cHzb9LxLX5in"
+			]
+		}
+	},
+	"version": 1
+}

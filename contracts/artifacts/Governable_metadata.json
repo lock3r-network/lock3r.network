@@ -1,0 +1,130 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_governor",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "GovernorAccepted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pendingGovernor",
+						"type": "address"
+					}
+				],
+				"name": "PendingGovernorSet",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "acceptGovernor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "governor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingGovernor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_pendingGovernor",
+						"type": "address"
+					}
+				],
+				"name": "setPendingGovernor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Governable.sol": "Governable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Governable.sol": {
+			"keccak256": "0xd6bc6811d55c1a31faa876c390630d811969bda64f842f6d31b1054abe51dbf2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6155afb9ce82f5bbdf9298a9c4cafdeadfc15a6c13667f3f8a1d0f7b90572faa",
+				"dweb:/ipfs/QmXkyqWMeaq2R2u71Bd9AF2oeMp3HKCRtk1qZesVc4zuvx"
+			]
+		},
+		"localhost/interfaces/HegicPool/IGovernable.sol": {
+			"keccak256": "0x1fde1ffb33ad80ce7b2140320cc9761ef576aa19ea659b5a82858d063cd4a4a8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5d876866aac79d683c81175f57ab0fe38721c3bf6ce9eb17a5377f3daee700f1",
+				"dweb:/ipfs/QmSXSRjS1YZvq7kT5Zc3uxeMK6DrCmkvRWTPepRwmkhw2s"
+			]
+		}
+	},
+	"version": 1
+}

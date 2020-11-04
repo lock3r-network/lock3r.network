@@ -1,0 +1,102 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					}
+				],
+				"name": "bonds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBonded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "votes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rV1Helper.sol": "IKeep3rV1"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rV1Helper.sol": {
+			"keccak256": "0xc79da950cd4433720384548ea4c5133275d66bba7d1a8c9083a53cc86ef4caa9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://10a0ac41615b5061f31aa9df80e353c9f9f1b596a409f4a0e7d87cc3335f00db",
+				"dweb:/ipfs/QmeRyXzqZ1b1Bejdgcry5SsZeLsojtmxnw4E2ihufShS4a"
+			]
+		}
+	},
+	"version": 1
+}

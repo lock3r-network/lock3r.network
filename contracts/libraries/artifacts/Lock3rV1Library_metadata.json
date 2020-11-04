@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					}
+				],
+				"name": "getReserve",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/libraries/Lock3rV1Library.sol": "Lock3rV1Library"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/Uniswap/IUniswapV2Pair.sol": {
+			"keccak256": "0xcfb57aaf6da1c47f8fdd4c0160ea047dbf56bdb7846f3af32e1021f4ba048fc9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://564084248624185c1c5a5aa9c8f84680e6181dc7d2bd618a69746917e1a1d438",
+				"dweb:/ipfs/QmUiJP9TSuyFfbeA8QSSogwXRzP9wZMYu2weCLefVRWKSU"
+			]
+		},
+		"localhost/libraries/Lock3rV1Library.sol": {
+			"keccak256": "0x1aa7667973b9cb8972839079bfd3e9cecb5f479c1b91dc29272aae2aef790684",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3207de5567a5d58e1b43054afe335ae5bfd645f05499adc655049e58c85b0d3a",
+				"dweb:/ipfs/QmWJiFHjbHYBJBR3JZEzamtVJZ2vBiTN7aME6s6WNXhsow"
+			]
+		}
+	},
+	"version": 1
+}

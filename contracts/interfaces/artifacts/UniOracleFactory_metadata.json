@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					}
+				],
+				"name": "update",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/interfaces/UniOracleFactory.sol": "UniOracleFactory"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/UniOracleFactory.sol": {
+			"keccak256": "0xef83e7f134c990f0e503e0aef974c5211c3baf34a4977102c5479777d2d641cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a74f2fb066ca32ac1e44d18c71f09ab85a702064d94bb83dd24740493067b4f",
+				"dweb:/ipfs/Qmed2z6kH9A4F7pgZJaimSczeMFFXT74csEqve4gjCwdBs"
+			]
+		}
+	},
+	"version": 1
+}

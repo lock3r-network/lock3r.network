@@ -1,0 +1,88 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					}
+				],
+				"name": "update",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rJob.sol": "Lock3rJob"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rJob.sol": {
+			"keccak256": "0xa69b031fdf79ea702d7132f59cc645fbe5874b1f9b924a257427b453edc1596a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0aa16cef8f30e9ae454264de58dad2d2136cb5701cea1b26f8758e481ef2b6d",
+				"dweb:/ipfs/QmUT66Znns2iToP9rfbx9MsgXuxGfdnGvaychvgj1bSv6W"
+			]
+		},
+		"localhost/interfaces/Lock3r/ILock3r.sol": {
+			"keccak256": "0x296d7812690df28c3e09ea0cccdac608d32149054b85a5a2be6b9eb83f355058",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3123ec507142dd57af45475194a1a83b9c5ad025182af4c33cf5d353440a3758",
+				"dweb:/ipfs/QmPH2E2Zw3Aoe1dbuqkqJMHvwBaUYHYxLwW8gLCgqSNMns"
+			]
+		},
+		"localhost/interfaces/Lock3r/ILock3rHelper.sol": {
+			"keccak256": "0xfb41403d99ee2d033b7d03f812b36787d8271c151b45e760317202aa8bdf4527",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3c4cc47d5a6a5a6d422e8e825752ff8546b8d8f92f8b6f1303c2a4246105f3e",
+				"dweb:/ipfs/QmfJFhxiPRzWzoyuQQ7Xh7u3y6PgBrK5gaUWSnjAYpjnEu"
+			]
+		},
+		"localhost/interfaces/UniOracleFactory.sol": {
+			"keccak256": "0xef83e7f134c990f0e503e0aef974c5211c3baf34a4977102c5479777d2d641cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a74f2fb066ca32ac1e44d18c71f09ab85a702064d94bb83dd24740493067b4f",
+				"dweb:/ipfs/Qmed2z6kH9A4F7pgZJaimSczeMFFXT74csEqve4gjCwdBs"
+			]
+		}
+	},
+	"version": 1
+}

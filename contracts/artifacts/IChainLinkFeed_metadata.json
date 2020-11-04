@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "latestAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rV1Helper.sol": "IChainLinkFeed"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rV1Helper.sol": {
+			"keccak256": "0x1c5dccdfac8ae67df82fe6a87fab6d8bb1e47545c7a19df8f5aef2b04eb67735",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2d54674fd12edfc201b6102739ccf142c37b76f5d6fd7086db6e16eb2a7454ac",
+				"dweb:/ipfs/QmTxgiv6xYoMsw6DmhWgG8pb4DMPRAuoSSBtw67w6Uytwi"
+			]
+		}
+	},
+	"version": 1
+}

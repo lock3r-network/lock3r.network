@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/interfaces/UniOracleFactory.sol": "SafeMath"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/UniOracleFactory.sol": {
+			"keccak256": "0x5c838f8d0a8c9fadeaaa733561a1c0a5ab0787b4140a19e4c40d34b9602fbf07",
+			"urls": [
+				"bzz-raw://bc70edff63e143b3c8fdc2ec2957f71495ebd26bd526cc681d0193fb88e460d5",
+				"dweb:/ipfs/QmNmgUV1uhoam1AD5LHkPPHwJYGy5zXq4hatuTy5wo3vGz"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,2951 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creditor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AddCredit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "credit",
+						"type": "uint256"
+					}
+				],
+				"name": "ApplyCredit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "delegator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "fromDelegate",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "toDelegate",
+						"type": "address"
+					}
+				],
+				"name": "DelegateChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "delegate",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "previousBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "DelegateVotesChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "governance",
+						"type": "address"
+					}
+				],
+				"name": "JobAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "governance",
+						"type": "address"
+					}
+				],
+				"name": "JobRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "activated",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bond",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperBonded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "active",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bond",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperBonding",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperDispute",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperResolved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "slasher",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "slash",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperSlashed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "deactive",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bond",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperUnbonding",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "deactivated",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bond",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperUnbound",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					}
+				],
+				"name": "KeeperWorked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "credit",
+						"type": "uint256"
+					}
+				],
+				"name": "RemoveJob",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "credit",
+						"type": "uint256"
+					}
+				],
+				"name": "SubmitJob",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "credit",
+						"type": "uint256"
+					}
+				],
+				"name": "UnbondJob",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "BASE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "BOND",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DELEGATION_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAINSEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ETH",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "KPRH",
+				"outputs": [
+					{
+						"internalType": "contract ILock3rV1Helper",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "LIQUIDITYBOND",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PERMIT_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UNBOND",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "acceptGovernance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonding",
+						"type": "address"
+					}
+				],
+				"name": "activate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addCredit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "addCreditETH",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "addJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addKPRCredit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidityToJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addVotes",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "applyCreditToJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					}
+				],
+				"name": "approveLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "blacklist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonding",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "bond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "bondings",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "bonds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "checkpoints",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "fromBlock",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "credits",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					}
+				],
+				"name": "delegate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiry",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "delegateBySig",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "delegates",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "dispute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "disputes",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "firstSeen",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getCurrentVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getJobs",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getKeepers",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getPriorVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "governance",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "bond",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minBond",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "earned",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					}
+				],
+				"name": "isBondedKeeper",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "isKeeper",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minBond",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "earned",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					}
+				],
+				"name": "isMinKeeper",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "jobList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "jobProposalDelay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "jobs",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "keeperList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "keepers",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "lastJob",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityAccepted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityAmountsUnbonding",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityApplied",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "liquidityPairs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityProvided",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "liquidityUnbonding",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "numCheckpoints",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pairs",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "partialUnbonding",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingGovernance",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "pendingbonds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "permit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "receipt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "receiptETH",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "removeJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "removeLiquidityFromJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "removeVotes",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "resolve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "revoke",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					}
+				],
+				"name": "revokeLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_governance",
+						"type": "address"
+					}
+				],
+				"name": "setGovernance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kprh",
+						"type": "address"
+					}
+				],
+				"name": "setLock3rHelper",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonded",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "slash",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBonded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dst",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "src",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "dst",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonding",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "unbond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "liquidity",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "unbondLiquidityFromJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "unbondings",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "votes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonding",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "workCompleted",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "workReceipt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "keeper",
+						"type": "address"
+					}
+				],
+				"name": "worked",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"activate(address)": {
+					"params": {
+						"bonding": "the asset being activated as bond collateral"
+					}
+				},
+				"addCredit(address,address,uint256)": {
+					"params": {
+						"amount": "the amount of credit being added to the job",
+						"credit": "the credit being assigned to the job",
+						"job": "the job being credited"
+					}
+				},
+				"addCreditETH(address)": {
+					"params": {
+						"job": "the job being credited"
+					}
+				},
+				"addJob(address)": {
+					"params": {
+						"job": "address of the contract for which work should be performed"
+					}
+				},
+				"addKPRCredit(address,uint256)": {
+					"params": {
+						"amount": "the amount of credit being added to the job",
+						"job": "the job being credited"
+					}
+				},
+				"addLiquidityToJob(address,address,uint256)": {
+					"params": {
+						"amount": "the amount of liquidity tokens to use",
+						"job": "the job to assign credit to",
+						"liquidity": "the liquidity being added"
+					}
+				},
+				"addVotes(address,uint256)": {
+					"params": {
+						"amount": "of votes to add",
+						"voter": "to add the votes to"
+					}
+				},
+				"allowance(address,address)": {
+					"params": {
+						"account": "The address of the account holding the funds",
+						"spender": "The address of the account spending the funds"
+					},
+					"returns": {
+						"_0": "The number of tokens approved"
+					}
+				},
+				"applyCreditToJob(address,address,address)": {
+					"params": {
+						"job": "the job that is receiving the credit",
+						"liquidity": "the pair being added as liquidity",
+						"provider": "the liquidity provider"
+					}
+				},
+				"approve(address,uint256)": {
+					"details": "This will overwrite the approval amount for `spender`  and is subject to issues noted [here](https://eips.ethereum.org/EIPS/eip-20#approve)",
+					"params": {
+						"amount": "The number of tokens that are approved (2^256-1 means infinite)",
+						"spender": "The address of the account which may transfer tokens"
+					},
+					"returns": {
+						"_0": "Whether or not the approval succeeded"
+					}
+				},
+				"approveLiquidity(address)": {
+					"params": {
+						"liquidity": "the liquidity no longer accepted"
+					}
+				},
+				"balanceOf(address)": {
+					"params": {
+						"account": "The address of the account to get the balance of"
+					},
+					"returns": {
+						"_0": "The number of tokens held"
+					}
+				},
+				"bond(address,uint256)": {
+					"params": {
+						"amount": "the amount of bonding asset being bound",
+						"bonding": "the asset being bound"
+					}
+				},
+				"burn(uint256)": {
+					"params": {
+						"amount": "the amount of tokens to burn"
+					}
+				},
+				"delegate(address)": {
+					"params": {
+						"delegatee": "The address to delegate votes to"
+					}
+				},
+				"delegateBySig(address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"delegatee": "The address to delegate votes to",
+						"expiry": "The time at which to expire the signature",
+						"nonce": "The contract state required to match the signature",
+						"r": "Half of the ECDSA signature pair",
+						"s": "Half of the ECDSA signature pair",
+						"v": "The recovery byte of the signature"
+					}
+				},
+				"dispute(address)": {
+					"params": {
+						"keeper": "the address in dispute"
+					}
+				},
+				"getCurrentVotes(address)": {
+					"params": {
+						"account": "The address to get votes balance"
+					},
+					"returns": {
+						"_0": "The number of current votes for `account`"
+					}
+				},
+				"getJobs()": {
+					"returns": {
+						"_0": "array blob"
+					}
+				},
+				"getPriorVotes(address,uint256)": {
+					"details": "Block number must be a finalized block or else this function will revert to prevent misinformation.",
+					"params": {
+						"account": "The address of the account to check",
+						"blockNumber": "The block number to get the vote balance at"
+					},
+					"returns": {
+						"_0": "The number of votes the account had as of the given block"
+					}
+				},
+				"isBondedKeeper(address,address,uint256,uint256,uint256)": {
+					"params": {
+						"age": "the age of the keeper in the system",
+						"bond": "the bound asset being evaluated",
+						"earned": "the total funds earned in the keepers lifetime",
+						"keeper": "the keeper being investigated",
+						"minBond": "the minimum requirement for the asset provided in bond"
+					},
+					"returns": {
+						"_0": "true/false if the address is a keeper and has more than the bond"
+					}
+				},
+				"isKeeper(address)": {
+					"params": {
+						"keeper": "the keeper being investigated"
+					},
+					"returns": {
+						"_0": "true/false if the address is a keeper"
+					}
+				},
+				"isMinKeeper(address,uint256,uint256,uint256)": {
+					"params": {
+						"age": "the age of the keeper in the system",
+						"earned": "the total funds earned in the keepers lifetime",
+						"keeper": "the keeper being investigated",
+						"minBond": "the minimum requirement for the asset provided in bond"
+					},
+					"returns": {
+						"_0": "true/false if the address is a keeper and has more than the bond"
+					}
+				},
+				"mint(uint256)": {
+					"params": {
+						"amount": "the amount of tokens to mint to treasury"
+					}
+				},
+				"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"amount": "The number of tokens that are approved (2^256-1 means infinite)",
+						"deadline": "The time at which to expire the signature",
+						"owner": "The address to approve from",
+						"r": "Half of the ECDSA signature pair",
+						"s": "Half of the ECDSA signature pair",
+						"spender": "The address to be approved",
+						"v": "The recovery byte of the signature"
+					}
+				},
+				"receipt(address,address,uint256)": {
+					"params": {
+						"amount": "the reward that should be allocated",
+						"credit": "the asset being awarded to the keeper",
+						"keeper": "address of the keeper that performed the work"
+					}
+				},
+				"receiptETH(address,uint256)": {
+					"params": {
+						"amount": "the amount of ETH sent to the keeper",
+						"keeper": "address of the keeper that performed the work"
+					}
+				},
+				"removeJob(address)": {
+					"params": {
+						"job": "address of the contract for which work should be performed"
+					}
+				},
+				"removeLiquidityFromJob(address,address)": {
+					"params": {
+						"job": "the job being unbound from",
+						"liquidity": "the pair being unbound"
+					}
+				},
+				"removeVotes(address,uint256)": {
+					"params": {
+						"amount": "of votes to remove",
+						"voter": "to subtract the votes"
+					}
+				},
+				"resolve(address)": {
+					"params": {
+						"keeper": "the address cleared"
+					}
+				},
+				"revoke(address)": {
+					"params": {
+						"keeper": "the address being slashed"
+					}
+				},
+				"revokeLiquidity(address)": {
+					"params": {
+						"liquidity": "the liquidity no longer accepted"
+					}
+				},
+				"setGovernance(address)": {
+					"params": {
+						"_governance": "new governance address to set"
+					}
+				},
+				"setLock3rHelper(address)": {
+					"params": {
+						"_kprh": "new helper address to set"
+					}
+				},
+				"slash(address,address,uint256)": {
+					"params": {
+						"amount": "the amount being slashed",
+						"bonded": "the asset being slashed",
+						"keeper": "the address being slashed"
+					}
+				},
+				"transfer(address,uint256)": {
+					"params": {
+						"amount": "The number of tokens to transfer",
+						"dst": "The address of the destination account"
+					},
+					"returns": {
+						"_0": "Whether or not the transfer succeeded"
+					}
+				},
+				"transferFrom(address,address,uint256)": {
+					"params": {
+						"amount": "The number of tokens to transfer",
+						"dst": "The address of the destination account",
+						"src": "The address of the source account"
+					},
+					"returns": {
+						"_0": "Whether or not the transfer succeeded"
+					}
+				},
+				"unbond(address,uint256)": {
+					"params": {
+						"amount": "allows for partial unbonding",
+						"bonding": "the asset being unbound"
+					}
+				},
+				"unbondLiquidityFromJob(address,address,uint256)": {
+					"params": {
+						"amount": "the amount of liquidity being removed",
+						"job": "the job being unbound from",
+						"liquidity": "the pair being unbound"
+					}
+				},
+				"withdraw(address)": {
+					"params": {
+						"bonding": "the asset to withdraw from the bonding pool"
+					}
+				},
+				"workReceipt(address,uint256)": {
+					"params": {
+						"amount": "the reward that should be allocated",
+						"keeper": "address of the keeper that performed the work"
+					}
+				},
+				"worked(address)": {
+					"params": {
+						"keeper": "address of the keeper that performed the work"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"ApplyCredit(address,address,address,uint256,uint256)": {
+					"notice": "Apply credit to a job"
+				},
+				"Approval(address,address,uint256)": {
+					"notice": "The standard EIP-20 approval event"
+				},
+				"DelegateChanged(address,address,address)": {
+					"notice": "An event thats emitted when an account changes its delegate"
+				},
+				"DelegateVotesChanged(address,uint256,uint256)": {
+					"notice": "An event thats emitted when a delegate account's vote balance changes"
+				},
+				"JobAdded(address,uint256,address)": {
+					"notice": "Added a Job"
+				},
+				"JobRemoved(address,uint256,address)": {
+					"notice": "Removed a job"
+				},
+				"KeeperBonded(address,uint256,uint256,uint256)": {
+					"notice": "Keeper bonded"
+				},
+				"KeeperBonding(address,uint256,uint256,uint256)": {
+					"notice": "Keeper bonding"
+				},
+				"KeeperDispute(address,uint256)": {
+					"notice": "Keeper disputed"
+				},
+				"KeeperResolved(address,uint256)": {
+					"notice": "Keeper resolved"
+				},
+				"KeeperSlashed(address,address,uint256,uint256)": {
+					"notice": "Keeper slashed"
+				},
+				"KeeperUnbonding(address,uint256,uint256,uint256)": {
+					"notice": "Keeper unbonding"
+				},
+				"KeeperUnbound(address,uint256,uint256,uint256)": {
+					"notice": "Keeper unbound"
+				},
+				"KeeperWorked(address,address,address,uint256)": {
+					"notice": "Worked a job"
+				},
+				"RemoveJob(address,address,address,uint256,uint256)": {
+					"notice": "Remove credit for a job"
+				},
+				"SubmitJob(address,address,address,uint256,uint256)": {
+					"notice": "Submit a job"
+				},
+				"Transfer(address,address,uint256)": {
+					"notice": "The standard EIP-20 transfer event"
+				},
+				"UnbondJob(address,address,address,uint256,uint256)": {
+					"notice": "Unbond credit for a job"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"BOND()": {
+					"notice": "1 day to bond to become a keeper"
+				},
+				"DELEGATION_TYPEHASH()": {
+					"notice": "The EIP-712 typehash for the delegation struct used by the contract"
+				},
+				"DOMAIN_TYPEHASH()": {
+					"notice": "The EIP-712 typehash for the contract's domain"
+				},
+				"ETH()": {
+					"notice": "address used for ETH transfers"
+				},
+				"FEE()": {
+					"notice": "direct liquidity fee 0.3%"
+				},
+				"KPRH()": {
+					"notice": "Lock3r Helper to set max prices for the ecosystem"
+				},
+				"LIQUIDITYBOND()": {
+					"notice": "3 days till liquidity can be bound"
+				},
+				"PERMIT_TYPEHASH()": {
+					"notice": "The EIP-712 typehash for the permit struct used by the contract"
+				},
+				"UNBOND()": {
+					"notice": "14 days to unbond to remove funds from being a keeper"
+				},
+				"acceptGovernance()": {
+					"notice": "Allows pendingGovernance to accept their role as governance (protection pattern)"
+				},
+				"activate(address)": {
+					"notice": "allows a keeper to activate/register themselves after bonding"
+				},
+				"addCredit(address,address,uint256)": {
+					"notice": "Add credit to a job to be paid out for work"
+				},
+				"addCreditETH(address)": {
+					"notice": "Add ETH credit to a job to be paid out for work"
+				},
+				"addJob(address)": {
+					"notice": "Allows governance to add new job systems"
+				},
+				"addKPRCredit(address,uint256)": {
+					"notice": "Add credit to a job to be paid out for work"
+				},
+				"addLiquidityToJob(address,address,uint256)": {
+					"notice": "Allows liquidity providers to submit jobs"
+				},
+				"addVotes(address,uint256)": {
+					"notice": "Add non transferable votes for governance"
+				},
+				"allowance(address,address)": {
+					"notice": "Get the number of tokens `spender` is approved to spend on behalf of `account`"
+				},
+				"applyCreditToJob(address,address,address)": {
+					"notice": "Applies the credit provided in addLiquidityToJob to the job"
+				},
+				"approve(address,uint256)": {
+					"notice": "Approve `spender` to transfer up to `amount` from `src`"
+				},
+				"approveLiquidity(address)": {
+					"notice": "Approve a liquidity pair for being accepted in future"
+				},
+				"balanceOf(address)": {
+					"notice": "Get the number of tokens held by the `account`"
+				},
+				"blacklist(address)": {
+					"notice": "blacklist of keepers not allowed to participate"
+				},
+				"bond(address,uint256)": {
+					"notice": "begin the bonding process for a new keeper"
+				},
+				"bondings(address,address)": {
+					"notice": "tracks all current bondings (time)"
+				},
+				"bonds(address,address)": {
+					"notice": "tracks how much a keeper has bonded"
+				},
+				"burn(uint256)": {
+					"notice": "burn owned tokens"
+				},
+				"checkpoints(address,uint32)": {
+					"notice": "A record of votes checkpoints for each account, by index"
+				},
+				"credits(address,address)": {
+					"notice": "the current credit available for a job"
+				},
+				"decimals()": {
+					"notice": "EIP-20 token decimals for this token"
+				},
+				"delegate(address)": {
+					"notice": "Delegate votes from `msg.sender` to `delegatee`"
+				},
+				"delegateBySig(address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Delegates votes from signatory to `delegatee`"
+				},
+				"delegates(address)": {
+					"notice": "A record of each accounts delegate"
+				},
+				"dispute(address)": {
+					"notice": "allows governance to create a dispute for a given keeper"
+				},
+				"disputes(address)": {
+					"notice": "tracks if a keeper has a pending dispute"
+				},
+				"firstSeen(address)": {
+					"notice": "tracks when a keeper was first registered"
+				},
+				"getCurrentVotes(address)": {
+					"notice": "Gets the current votes balance for `account`"
+				},
+				"getJobs()": {
+					"notice": "Full listing of all jobs ever added"
+				},
+				"getKeepers()": {
+					"notice": "get full list of keepers in the system"
+				},
+				"getPriorVotes(address,uint256)": {
+					"notice": "Determine the prior number of votes for an account as of a block number"
+				},
+				"governance()": {
+					"notice": "governance address for the governance contract"
+				},
+				"isBondedKeeper(address,address,uint256,uint256,uint256)": {
+					"notice": "confirms if the current keeper is registered and has a minimum bond, should be used for protected functions"
+				},
+				"isKeeper(address)": {
+					"notice": "confirms if the current keeper is registered, can be used for general (non critical) functions"
+				},
+				"isMinKeeper(address,uint256,uint256,uint256)": {
+					"notice": "confirms if the current keeper is registered and has a minimum bond, should be used for protected functions"
+				},
+				"jobList(uint256)": {
+					"notice": "traversable array of jobs to make external management easier"
+				},
+				"jobProposalDelay(address)": {
+					"notice": "job proposal delay"
+				},
+				"jobs(address)": {
+					"notice": "list of all jobs registered for the keeper system"
+				},
+				"keeperList(uint256)": {
+					"notice": "traversable array of keepers to make external management easier"
+				},
+				"keepers(address)": {
+					"notice": "list of all current keepers"
+				},
+				"lastJob(address)": {
+					"notice": "tracks last job performed for a keeper"
+				},
+				"liquidityAccepted(address)": {
+					"notice": "the liquidity token supplied by users paying for jobs"
+				},
+				"liquidityAmount(address,address,address)": {
+					"notice": "liquidity amount to apply"
+				},
+				"liquidityAmountsUnbonding(address,address,address)": {
+					"notice": "liquidity unbonding amounts"
+				},
+				"liquidityApplied(address,address,address)": {
+					"notice": "liquidity apply date"
+				},
+				"liquidityProvided(address,address,address)": {
+					"notice": "the balances for the liquidity providers"
+				},
+				"liquidityUnbonding(address,address,address)": {
+					"notice": "liquidity unbonding days"
+				},
+				"mint(uint256)": {
+					"notice": "Allows governance to mint new tokens to treasury"
+				},
+				"name()": {
+					"notice": "EIP-20 token name for this token"
+				},
+				"nonces(address)": {
+					"notice": "A record of states for signing / validating signatures"
+				},
+				"numCheckpoints(address)": {
+					"notice": "The number of checkpoints for each account"
+				},
+				"pairs()": {
+					"notice": "Displays all accepted liquidity pairs"
+				},
+				"partialUnbonding(address,address)": {
+					"notice": "allows for partial unbonding"
+				},
+				"pendingbonds(address,address)": {
+					"notice": "tracks all current pending bonds (amount)"
+				},
+				"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Triggers an approval from owner to spends"
+				},
+				"receipt(address,address,uint256)": {
+					"notice": "Implemented by jobs to show that a keeper performed work"
+				},
+				"receiptETH(address,uint256)": {
+					"notice": "Implemented by jobs to show that a keeper performed work"
+				},
+				"removeJob(address)": {
+					"notice": "Allows governance to remove a job from the systems"
+				},
+				"removeLiquidityFromJob(address,address)": {
+					"notice": "Allows liquidity providers to remove liquidity"
+				},
+				"removeVotes(address,uint256)": {
+					"notice": "Remove non transferable votes for governance"
+				},
+				"resolve(address)": {
+					"notice": "allows governance to resolve a dispute on a keeper"
+				},
+				"revoke(address)": {
+					"notice": "blacklists a keeper from participating in the network"
+				},
+				"revokeLiquidity(address)": {
+					"notice": "Revoke a liquidity pair from being accepted in future"
+				},
+				"setGovernance(address)": {
+					"notice": "Allows governance to change governance (for future upgradability)"
+				},
+				"setLock3rHelper(address)": {
+					"notice": "Allows governance to change the Lock3rHelper for max spend"
+				},
+				"slash(address,address,uint256)": {
+					"notice": "allows governance to slash a keeper based on a dispute"
+				},
+				"symbol()": {
+					"notice": "EIP-20 token symbol for this token"
+				},
+				"totalBonded()": {
+					"notice": "total bonded (totalSupply for bonds)"
+				},
+				"totalSupply()": {
+					"notice": "Total number of tokens in circulation"
+				},
+				"transfer(address,uint256)": {
+					"notice": "Transfer `amount` tokens from `msg.sender` to `dst`"
+				},
+				"transferFrom(address,address,uint256)": {
+					"notice": "Transfer `amount` tokens from `src` to `dst`"
+				},
+				"unbond(address,uint256)": {
+					"notice": "begin the unbonding process to stop being a keeper"
+				},
+				"unbondLiquidityFromJob(address,address,uint256)": {
+					"notice": "Unbond liquidity for a job"
+				},
+				"unbondings(address,address)": {
+					"notice": "tracks all current unbondings (time)"
+				},
+				"votes(address)": {
+					"notice": "tracks underlying votes (that don't have bond)"
+				},
+				"withdraw(address)": {
+					"notice": "withdraw funds after unbonding has finished"
+				},
+				"workCompleted(address)": {
+					"notice": "tracks the total job executions for a keeper"
+				},
+				"workReceipt(address,uint256)": {
+					"notice": "Implemented by jobs to show that a keeper performed work"
+				},
+				"worked(address)": {
+					"notice": "Implemented by jobs to show that a keeper performed work"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rFlat.sol": "Lock3rNetwork"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rFlat.sol": {
+			"keccak256": "0x842eb6db535608f1efbc1fa984274d3c761cce50d63167c98b77b2cf3707b875",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e135ce466ac8983ba2fb42f2d58fcdde2481e5bde732800fadade4150683e4af",
+				"dweb:/ipfs/QmeSJ3VYQN94UwyQMsLxqH3E4Ag9TeJk7CVus5HeLepSVr"
+			]
+		}
+	},
+	"version": 1
+}

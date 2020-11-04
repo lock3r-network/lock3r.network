@@ -1,0 +1,61 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/libraries/UniswapV2OracleLibrary.sol": "UniswapV2OracleLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/Uniswap/IUniswapV2Pair.sol": {
+			"keccak256": "0xcfb57aaf6da1c47f8fdd4c0160ea047dbf56bdb7846f3af32e1021f4ba048fc9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://564084248624185c1c5a5aa9c8f84680e6181dc7d2bd618a69746917e1a1d438",
+				"dweb:/ipfs/QmUiJP9TSuyFfbeA8QSSogwXRzP9wZMYu2weCLefVRWKSU"
+			]
+		},
+		"localhost/libraries/FixedPoint.sol": {
+			"keccak256": "0x171afcd0c9e6e8bed3325b5cc45d267a869f518292c7f39981b0176dc1c6c68b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://37363363037e562cdbc8da9b04ac8319174995271ea4f34ff5d5e952cebfad14",
+				"dweb:/ipfs/QmWNGvuJCPkS76Lw58bwupjqnmELSwphqVqfGLggDmnXEP"
+			]
+		},
+		"localhost/libraries/UniswapV2OracleLibrary.sol": {
+			"keccak256": "0x54bc50bcf9bf746a7a7bb3c6d98c9187c17a21ee7a121a61b38515b626b4757b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4327ba6b6fa7bbddccf354b9e7829e76b7f974cf552d91aca75c0810c57f3936",
+				"dweb:/ipfs/QmZtH6g1C2jU1AwpFoF6qADydNFyxxLXYeBCgJyEj9fTSN"
+			]
+		}
+	},
+	"version": 1
+}

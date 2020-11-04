@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "proposeJob",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/interfaces/IGovernance.sol": "IGovernance"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/IGovernance.sol": {
+			"keccak256": "0x0c1b2667f0c6b29175c217383048fd29d3dadb929947d6ab5c7ba765e016898a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ca91c111a56925f294e62df08e6cd69d876dcca56c8937bc23a3d10b5dd4fef1",
+				"dweb:/ipfs/QmeiBKTPwwtkLvVBE7Y1rGeHFVDCLJ3xPiBrEytaNwVY3B"
+			]
+		}
+	},
+	"version": 1
+}

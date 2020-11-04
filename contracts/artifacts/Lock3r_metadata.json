@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_Lock3r",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "Lock3r",
+				"outputs": [
+					{
+						"internalType": "contract ILock3rV1",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rAbstract.sol": "Lock3r"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rAbstract.sol": {
+			"keccak256": "0xb292f7875d2e51ce32728049df3bd8330ecbf767c1550d1034986a1374e4aa47",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7dabb71b44430ad76a7ccf54430795e60a90f199b121e138fc992e6637077262",
+				"dweb:/ipfs/QmVsGecsnwEfjZC4WvQkZrMydgGLKKPgRHKzKgL4NHrmMY"
+			]
+		},
+		"localhost/interfaces/Lock3r/ILock3rV1.sol": {
+			"keccak256": "0xcfcc4994304b390859e804f7a71cf15814f26c780e6c7293692fb399fb110d0d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8cf80cf990b06ab8c410ed769af07bf2c96d8a921383452d26eb4daca9a2b6d9",
+				"dweb:/ipfs/QmPonGEshJa8uKEfsaC94ymhuFtxxL1eed4KcL2tsqEhcd"
+			]
+		}
+	},
+	"version": 1
+}

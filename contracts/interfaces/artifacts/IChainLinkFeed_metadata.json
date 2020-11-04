@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "latestAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/interfaces/IChainLinkFeed.sol": "IChainLinkFeed"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/interfaces/IChainLinkFeed.sol": {
+			"keccak256": "0xe9417be751de64411c450c1c87ca29fdbe0c94460fe966b3d841d1c10118013f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://45755f05ac9901097ffe18208a492ee99feb719b60f5be42f91747f3c1d8006e",
+				"dweb:/ipfs/QmaxTo8jEGBAKvuUtfqas1aNz82jxdb8zV8j9qUanqGHFY"
+			]
+		}
+	},
+	"version": 1
+}
