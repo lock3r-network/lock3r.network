@@ -45,7 +45,8 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"proposeJob(address)": "dc380cbb"
+			"proposeJob(address)": "dc380cbb",
+			"slash(address,address,uint256)": "e74f8239"
 		}
 	},
 	"abi": [
@@ -58,6 +59,29 @@
 				}
 			],
 			"name": "proposeJob",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "bonded",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "locker",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "slash",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

@@ -1,0 +1,171 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"executeStrategy(uint256)": "887a2f72",
+			"mostProfitableStrategyInETH()": "6b93d2d1",
+			"numberOfStrategies()": "0956e5a6",
+			"strategyInfo(uint256)": "bb91c339",
+			"strategyProfitInReturnToken(uint256)": "d92f5999"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "strategyPID",
+					"type": "uint256"
+				}
+			],
+			"name": "executeStrategy",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "mostProfitableStrategyInETH",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "profit",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "strategyID",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "numberOfStrategies",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "strategyPID",
+					"type": "uint256"
+				}
+			],
+			"name": "strategyInfo",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "strategyName",
+							"type": "string"
+						},
+						{
+							"internalType": "bool[]",
+							"name": "token0Out",
+							"type": "bool[]"
+						},
+						{
+							"internalType": "address[]",
+							"name": "pairs",
+							"type": "address[]"
+						},
+						{
+							"internalType": "uint256[]",
+							"name": "feeOnTransfers",
+							"type": "uint256[]"
+						},
+						{
+							"internalType": "bool",
+							"name": "cBTCSupport",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "feeOff",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ICoreFlashArb.Strategy",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "strategyID",
+					"type": "uint256"
+				}
+			],
+			"name": "strategyProfitInReturnToken",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "profit",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

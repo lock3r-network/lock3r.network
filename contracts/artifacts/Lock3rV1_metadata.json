@@ -215,7 +215,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -237,7 +237,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperBonded",
+				"name": "LockerBonded",
 				"type": "event"
 			},
 			{
@@ -246,7 +246,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -268,7 +268,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperBonding",
+				"name": "LockerBonding",
 				"type": "event"
 			},
 			{
@@ -277,7 +277,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -287,7 +287,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperDispute",
+				"name": "LockerDispute",
 				"type": "event"
 			},
 			{
@@ -296,7 +296,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -306,7 +306,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperResolved",
+				"name": "LockerResolved",
 				"type": "event"
 			},
 			{
@@ -315,7 +315,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -337,7 +337,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperSlashed",
+				"name": "LockerSlashed",
 				"type": "event"
 			},
 			{
@@ -346,7 +346,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -368,7 +368,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperUnbonding",
+				"name": "LockerUnbonding",
 				"type": "event"
 			},
 			{
@@ -377,7 +377,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -399,7 +399,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperUnbound",
+				"name": "LockerUnbound",
 				"type": "event"
 			},
 			{
@@ -420,7 +420,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -430,7 +430,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "KeeperWorked",
+				"name": "LockerWorked",
 				"type": "event"
 			},
 			{
@@ -662,12 +662,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "KPRH",
+				"name": "LIQUIDITYBOND",
 				"outputs": [
 					{
-						"internalType": "contract ILock3rV1Helper",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -675,12 +675,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "LIQUIDITYBOND",
+				"name": "LK3RH",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "contract ILock3rV1Helper",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -794,7 +794,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "addKPRCredit",
+				"name": "addLK3RCredit",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1181,7 +1181,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					}
 				],
@@ -1231,6 +1231,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "fund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "account",
 						"type": "address"
@@ -1262,7 +1275,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getKeepers",
+				"name": "getLockers",
 				"outputs": [
 					{
 						"internalType": "address[]",
@@ -1314,7 +1327,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -1338,7 +1351,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "isBondedKeeper",
+				"name": "isBondedLocker",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -1353,11 +1366,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					}
 				],
-				"name": "isKeeper",
+				"name": "isLocker",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -1372,7 +1385,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -1391,7 +1404,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "isMinKeeper",
+				"name": "isMinLocker",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -1449,44 +1462,6 @@
 					}
 				],
 				"name": "jobs",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "keeperList",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "keepers",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -1703,13 +1678,38 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "mint",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "lockerList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "lockers",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -1814,6 +1814,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "pendingTreasury",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -1889,7 +1902,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -1907,7 +1920,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -1974,7 +1987,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					}
 				],
@@ -1987,7 +2000,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					}
 				],
@@ -2025,8 +2038,8 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_kprh",
+						"internalType": "contract ILock3rV1Helper",
+						"name": "_lk3rh",
 						"type": "address"
 					}
 				],
@@ -2044,7 +2057,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -2148,6 +2161,19 @@
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "treasury",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -2270,7 +2296,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -2288,7 +2314,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "locker",
 						"type": "address"
 					}
 				],
@@ -2323,7 +2349,7 @@
 						"job": "address of the contract for which work should be performed"
 					}
 				},
-				"addKPRCredit(address,uint256)": {
+				"addLK3RCredit(address,uint256)": {
 					"params": {
 						"amount": "the amount of credit being added to the job",
 						"job": "the job being credited"
@@ -2409,7 +2435,12 @@
 				},
 				"dispute(address)": {
 					"params": {
-						"keeper": "the address in dispute"
+						"locker": "the address in dispute"
+					}
+				},
+				"fund(uint256)": {
+					"params": {
+						"amount": "the amount of tokens to fund to a job contract Only Governance can fund a job contract from the treasury"
 					}
 				},
 				"getCurrentVotes(address)": {
@@ -2435,40 +2466,35 @@
 						"_0": "The number of votes the account had as of the given block"
 					}
 				},
-				"isBondedKeeper(address,address,uint256,uint256,uint256)": {
+				"isBondedLocker(address,address,uint256,uint256,uint256)": {
 					"params": {
-						"age": "the age of the keeper in the system",
+						"age": "the age of the locker in the system",
 						"bond": "the bound asset being evaluated",
-						"earned": "the total funds earned in the keepers lifetime",
-						"keeper": "the keeper being investigated",
+						"earned": "the total funds earned in the lockers lifetime",
+						"locker": "the locker being investigated",
 						"minBond": "the minimum requirement for the asset provided in bond"
 					},
 					"returns": {
-						"_0": "true/false if the address is a keeper and has more than the bond"
+						"_0": "true/false if the address is a locker and has more than the bond"
 					}
 				},
-				"isKeeper(address)": {
+				"isLocker(address)": {
 					"params": {
-						"keeper": "the keeper being investigated"
+						"locker": "the locker being investigated"
 					},
 					"returns": {
-						"_0": "true/false if the address is a keeper"
+						"_0": "true/false if the address is a locker"
 					}
 				},
-				"isMinKeeper(address,uint256,uint256,uint256)": {
+				"isMinLocker(address,uint256,uint256,uint256)": {
 					"params": {
-						"age": "the age of the keeper in the system",
-						"earned": "the total funds earned in the keepers lifetime",
-						"keeper": "the keeper being investigated",
+						"age": "the age of the locker in the system",
+						"earned": "the total funds earned in the lockers lifetime",
+						"locker": "the locker being investigated",
 						"minBond": "the minimum requirement for the asset provided in bond"
 					},
 					"returns": {
-						"_0": "true/false if the address is a keeper and has more than the bond"
-					}
-				},
-				"mint(uint256)": {
-					"params": {
-						"amount": "the amount of tokens to mint to treasury"
+						"_0": "true/false if the address is a locker and has more than the bond"
 					}
 				},
 				"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
@@ -2485,14 +2511,14 @@
 				"receipt(address,address,uint256)": {
 					"params": {
 						"amount": "the reward that should be allocated",
-						"credit": "the asset being awarded to the keeper",
-						"keeper": "address of the keeper that performed the work"
+						"credit": "the asset being awarded to the locker",
+						"locker": "address of the locker that performed the work"
 					}
 				},
 				"receiptETH(address,uint256)": {
 					"params": {
-						"amount": "the amount of ETH sent to the keeper",
-						"keeper": "address of the keeper that performed the work"
+						"amount": "the amount of ETH sent to the locker",
+						"locker": "address of the locker that performed the work"
 					}
 				},
 				"removeJob(address)": {
@@ -2514,12 +2540,12 @@
 				},
 				"resolve(address)": {
 					"params": {
-						"keeper": "the address cleared"
+						"locker": "the address cleared"
 					}
 				},
 				"revoke(address)": {
 					"params": {
-						"keeper": "the address being slashed"
+						"locker": "the address being slashed"
 					}
 				},
 				"revokeLiquidity(address)": {
@@ -2534,14 +2560,14 @@
 				},
 				"setLock3rHelper(address)": {
 					"params": {
-						"_kprh": "new helper address to set"
+						"_lk3rh": "new helper address to set"
 					}
 				},
 				"slash(address,address,uint256)": {
 					"params": {
 						"amount": "the amount being slashed",
 						"bonded": "the asset being slashed",
-						"keeper": "the address being slashed"
+						"locker": "the address being slashed"
 					}
 				},
 				"transfer(address,uint256)": {
@@ -2584,12 +2610,12 @@
 				"workReceipt(address,uint256)": {
 					"params": {
 						"amount": "the reward that should be allocated",
-						"keeper": "address of the keeper that performed the work"
+						"locker": "address of the locker that performed the work"
 					}
 				},
 				"worked(address)": {
 					"params": {
-						"keeper": "address of the keeper that performed the work"
+						"locker": "address of the locker that performed the work"
 					}
 				}
 			},
@@ -2615,28 +2641,28 @@
 				"JobRemoved(address,uint256,address)": {
 					"notice": "Removed a job"
 				},
-				"KeeperBonded(address,uint256,uint256,uint256)": {
-					"notice": "Keeper bonded"
+				"LockerBonded(address,uint256,uint256,uint256)": {
+					"notice": "Locker bonded"
 				},
-				"KeeperBonding(address,uint256,uint256,uint256)": {
-					"notice": "Keeper bonding"
+				"LockerBonding(address,uint256,uint256,uint256)": {
+					"notice": "Locker bonding"
 				},
-				"KeeperDispute(address,uint256)": {
-					"notice": "Keeper disputed"
+				"LockerDispute(address,uint256)": {
+					"notice": "Locker disputed"
 				},
-				"KeeperResolved(address,uint256)": {
-					"notice": "Keeper resolved"
+				"LockerResolved(address,uint256)": {
+					"notice": "Locker resolved"
 				},
-				"KeeperSlashed(address,address,uint256,uint256)": {
-					"notice": "Keeper slashed"
+				"LockerSlashed(address,address,uint256,uint256)": {
+					"notice": "Locker slashed"
 				},
-				"KeeperUnbonding(address,uint256,uint256,uint256)": {
-					"notice": "Keeper unbonding"
+				"LockerUnbonding(address,uint256,uint256,uint256)": {
+					"notice": "Locker unbonding"
 				},
-				"KeeperUnbound(address,uint256,uint256,uint256)": {
-					"notice": "Keeper unbound"
+				"LockerUnbound(address,uint256,uint256,uint256)": {
+					"notice": "Locker unbound"
 				},
-				"KeeperWorked(address,address,address,uint256)": {
+				"LockerWorked(address,address,address,uint256)": {
 					"notice": "Worked a job"
 				},
 				"RemoveJob(address,address,address,uint256,uint256)": {
@@ -2655,7 +2681,7 @@
 			"kind": "user",
 			"methods": {
 				"BOND()": {
-					"notice": "1 day to bond to become a keeper"
+					"notice": "1 day to bond to become a locker"
 				},
 				"DELEGATION_TYPEHASH()": {
 					"notice": "The EIP-712 typehash for the delegation struct used by the contract"
@@ -2669,23 +2695,23 @@
 				"FEE()": {
 					"notice": "direct liquidity fee 0.3%"
 				},
-				"KPRH()": {
-					"notice": "Lock3r Helper to set max prices for the ecosystem"
-				},
 				"LIQUIDITYBOND()": {
 					"notice": "3 days till liquidity can be bound"
+				},
+				"LK3RH()": {
+					"notice": "Lock3r Helper to set max prices for the ecosystem"
 				},
 				"PERMIT_TYPEHASH()": {
 					"notice": "The EIP-712 typehash for the permit struct used by the contract"
 				},
 				"UNBOND()": {
-					"notice": "14 days to unbond to remove funds from being a keeper"
+					"notice": "14 days to unbond to remove funds from being a locker"
 				},
 				"acceptGovernance()": {
 					"notice": "Allows pendingGovernance to accept their role as governance (protection pattern)"
 				},
 				"activate(address)": {
-					"notice": "allows a keeper to activate/register themselves after bonding"
+					"notice": "allows a locker to activate/register themselves after bonding"
 				},
 				"addCredit(address,address,uint256)": {
 					"notice": "Add credit to a job to be paid out for work"
@@ -2696,7 +2722,7 @@
 				"addJob(address)": {
 					"notice": "Allows governance to add new job systems"
 				},
-				"addKPRCredit(address,uint256)": {
+				"addLK3RCredit(address,uint256)": {
 					"notice": "Add credit to a job to be paid out for work"
 				},
 				"addLiquidityToJob(address,address,uint256)": {
@@ -2721,16 +2747,16 @@
 					"notice": "Get the number of tokens held by the `account`"
 				},
 				"blacklist(address)": {
-					"notice": "blacklist of keepers not allowed to participate"
+					"notice": "blacklist of lockers not allowed to participate"
 				},
 				"bond(address,uint256)": {
-					"notice": "begin the bonding process for a new keeper"
+					"notice": "begin the bonding process for a new locker"
 				},
 				"bondings(address,address)": {
 					"notice": "tracks all current bondings (time)"
 				},
 				"bonds(address,address)": {
-					"notice": "tracks how much a keeper has bonded"
+					"notice": "tracks how much a locker has bonded"
 				},
 				"burn(uint256)": {
 					"notice": "burn owned tokens"
@@ -2742,7 +2768,7 @@
 					"notice": "the current credit available for a job"
 				},
 				"decimals()": {
-					"notice": "EIP-20 token decimals for this token"
+					"notice": "EIP-20 token decimals for this token //POTUS - God Bless America"
 				},
 				"delegate(address)": {
 					"notice": "Delegate votes from `msg.sender` to `delegatee`"
@@ -2754,13 +2780,16 @@
 					"notice": "A record of each accounts delegate"
 				},
 				"dispute(address)": {
-					"notice": "allows governance to create a dispute for a given keeper"
+					"notice": "allows governance to create a dispute for a given locker"
 				},
 				"disputes(address)": {
-					"notice": "tracks if a keeper has a pending dispute"
+					"notice": "tracks if a locker has a pending dispute"
 				},
 				"firstSeen(address)": {
-					"notice": "tracks when a keeper was first registered"
+					"notice": "tracks when a locker was first registered"
+				},
+				"fund(uint256)": {
+					"notice": "Allows treasury to fund new tokens to a job contract"
 				},
 				"getCurrentVotes(address)": {
 					"notice": "Gets the current votes balance for `account`"
@@ -2768,8 +2797,8 @@
 				"getJobs()": {
 					"notice": "Full listing of all jobs ever added"
 				},
-				"getKeepers()": {
-					"notice": "get full list of keepers in the system"
+				"getLockers()": {
+					"notice": "get full list of lockers in the system"
 				},
 				"getPriorVotes(address,uint256)": {
 					"notice": "Determine the prior number of votes for an account as of a block number"
@@ -2777,14 +2806,14 @@
 				"governance()": {
 					"notice": "governance address for the governance contract"
 				},
-				"isBondedKeeper(address,address,uint256,uint256,uint256)": {
-					"notice": "confirms if the current keeper is registered and has a minimum bond, should be used for protected functions"
+				"isBondedLocker(address,address,uint256,uint256,uint256)": {
+					"notice": "confirms if the current locker is registered and has a minimum bond, should be used for protected functions"
 				},
-				"isKeeper(address)": {
-					"notice": "confirms if the current keeper is registered, can be used for general (non critical) functions"
+				"isLocker(address)": {
+					"notice": "confirms if the current locker is registered, can be used for general (non critical) functions"
 				},
-				"isMinKeeper(address,uint256,uint256,uint256)": {
-					"notice": "confirms if the current keeper is registered and has a minimum bond, should be used for protected functions"
+				"isMinLocker(address,uint256,uint256,uint256)": {
+					"notice": "confirms if the current locker is registered and has a minimum bond, should be used for protected functions"
 				},
 				"jobList(uint256)": {
 					"notice": "traversable array of jobs to make external management easier"
@@ -2793,16 +2822,10 @@
 					"notice": "job proposal delay"
 				},
 				"jobs(address)": {
-					"notice": "list of all jobs registered for the keeper system"
-				},
-				"keeperList(uint256)": {
-					"notice": "traversable array of keepers to make external management easier"
-				},
-				"keepers(address)": {
-					"notice": "list of all current keepers"
+					"notice": "list of all jobs registered for the locker system"
 				},
 				"lastJob(address)": {
-					"notice": "tracks last job performed for a keeper"
+					"notice": "tracks last job performed for a locker"
 				},
 				"liquidityAccepted(address)": {
 					"notice": "the liquidity token supplied by users paying for jobs"
@@ -2822,11 +2845,14 @@
 				"liquidityUnbonding(address,address,address)": {
 					"notice": "liquidity unbonding days"
 				},
-				"mint(uint256)": {
-					"notice": "Allows governance to mint new tokens to treasury"
+				"lockerList(uint256)": {
+					"notice": "traversable array of lockers to make external management easier"
+				},
+				"lockers(address)": {
+					"notice": "list of all current lockers"
 				},
 				"name()": {
-					"notice": "EIP-20 token name for this token"
+					"notice": "EIP-20 token name for this token //Joe Biden"
 				},
 				"nonces(address)": {
 					"notice": "A record of states for signing / validating signatures"
@@ -2847,10 +2873,10 @@
 					"notice": "Triggers an approval from owner to spends"
 				},
 				"receipt(address,address,uint256)": {
-					"notice": "Implemented by jobs to show that a keeper performed work"
+					"notice": "Implemented by jobs to show that a locker performed work"
 				},
 				"receiptETH(address,uint256)": {
-					"notice": "Implemented by jobs to show that a keeper performed work"
+					"notice": "Implemented by jobs to show that a locker performed work"
 				},
 				"removeJob(address)": {
 					"notice": "Allows governance to remove a job from the systems"
@@ -2862,10 +2888,10 @@
 					"notice": "Remove non transferable votes for governance"
 				},
 				"resolve(address)": {
-					"notice": "allows governance to resolve a dispute on a keeper"
+					"notice": "allows governance to resolve a dispute on a locker"
 				},
 				"revoke(address)": {
-					"notice": "blacklists a keeper from participating in the network"
+					"notice": "blacklists a locker from participating in the network"
 				},
 				"revokeLiquidity(address)": {
 					"notice": "Revoke a liquidity pair from being accepted in future"
@@ -2877,10 +2903,10 @@
 					"notice": "Allows governance to change the Lock3rHelper for max spend"
 				},
 				"slash(address,address,uint256)": {
-					"notice": "allows governance to slash a keeper based on a dispute"
+					"notice": "allows governance to slash a locker based on a dispute"
 				},
 				"symbol()": {
-					"notice": "EIP-20 token symbol for this token"
+					"notice": "EIP-20 token symbol for this token // is"
 				},
 				"totalBonded()": {
 					"notice": "total bonded (totalSupply for bonds)"
@@ -2894,8 +2920,11 @@
 				"transferFrom(address,address,uint256)": {
 					"notice": "Transfer `amount` tokens from `src` to `dst`"
 				},
+				"treasury()": {
+					"notice": "treasury address for the governance contract"
+				},
 				"unbond(address,uint256)": {
-					"notice": "begin the unbonding process to stop being a keeper"
+					"notice": "begin the unbonding process to stop being a locker"
 				},
 				"unbondLiquidityFromJob(address,address,uint256)": {
 					"notice": "Unbond liquidity for a job"
@@ -2910,13 +2939,13 @@
 					"notice": "withdraw funds after unbonding has finished"
 				},
 				"workCompleted(address)": {
-					"notice": "tracks the total job executions for a keeper"
+					"notice": "tracks the total job executions for a locker"
 				},
 				"workReceipt(address,uint256)": {
-					"notice": "Implemented by jobs to show that a keeper performed work"
+					"notice": "Implemented by jobs to show that a locker performed work"
 				},
 				"worked(address)": {
-					"notice": "Implemented by jobs to show that a keeper performed work"
+					"notice": "Implemented by jobs to show that a locker performed work"
 				}
 			},
 			"version": 1
@@ -2938,84 +2967,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/math/SafeMath.sol": {
-			"keccak256": "0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5",
-				"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0x5c26b39d26f7ed489e555d955dcd3e01872972e71fdd1528e93ec164e4f23385",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://efdc632af6960cf865dbc113665ea1f5b90eab75cc40ec062b2f6ae6da582017",
-				"dweb:/ipfs/QmfAZFDuG62vxmAN9DnXApv7e7PMzPqi4RkqqZHLMSQiY5"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/SafeERC20.sol": {
-			"keccak256": "0xf3b30f8a49631420635a8c35daacfcaa338012755f18a76fdd118730256f9a27",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://0d7de652204c2ee291a61aa984103dfc7ae4392d651fbbc44a0079caee7c69a3",
-				"dweb:/ipfs/Qmcw1cQnq9eWDnrCBwU3TNyqLfTMUFg5YKpYUkELoMPuUE"
-			]
-		},
-		"@openzeppelin/contracts/utils/Address.sol": {
-			"keccak256": "0xf5fa8cbdffa5ef8be49b246b5628facc30b71707e78a45d80d93b64eff3fe390",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://774e78a9ff32792cc95db4d2ceaf3a7965bb7f0bea5e6cb7cff182b450d44b37",
-				"dweb:/ipfs/QmRRMC4uj7eAcLW7chynA3sNEYULMFazdLwQHKHQPyzAbA"
-			]
-		},
 		"localhost/Lock3r.sol": {
-			"keccak256": "0x240aa2c713e71000a0d31f8ed1a1477acf6fd3c3cf3cca1059e6dc30bd29bcec",
+			"keccak256": "0xf07375c665ab4a2695640db602a19461d42e0b4b956b2e3305f91649611fd5ae",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://de7bf677a8d97b1eb91ccc3ed72d0f5d9771a885a512bb865b8ff734ea88b58a",
-				"dweb:/ipfs/QmbosV5NzUx4qxbzfSiU6qnQ14TpdPWP1Df8n4aYiqBHNk"
-			]
-		},
-		"localhost/ReentrancyGuard.sol": {
-			"keccak256": "0x4a174eb15c3b42c49ab2f4929a9fd33bd0eeb5d7bff404c5b5fa131c469d2c48",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://e8faf15732cc97198d68fa55afc0811eadb6273d45ae3859f96b7582664eb381",
-				"dweb:/ipfs/QmfJKvTehoXVDCE2uNPFRDz1T4p2d2nXWpVeiR7YQKxnGq"
-			]
-		},
-		"localhost/interfaces/IGovernance.sol": {
-			"keccak256": "0x0c1b2667f0c6b29175c217383048fd29d3dadb929947d6ab5c7ba765e016898a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://ca91c111a56925f294e62df08e6cd69d876dcca56c8937bc23a3d10b5dd4fef1",
-				"dweb:/ipfs/QmeiBKTPwwtkLvVBE7Y1rGeHFVDCLJ3xPiBrEytaNwVY3B"
-			]
-		},
-		"localhost/interfaces/Lock3r/ILock3rV1Helper.sol": {
-			"keccak256": "0xfa702e914f5c06923d57b278d6125e75716d1e8388f4ffcd3122c1b80d094158",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://dc5babb3546d4ff0add4bd8c19791e8be09dec9bb3ae18d4678cfb8354ba13b8",
-				"dweb:/ipfs/QmYZP921tEDeVmpKwxXXEXaqABV7r8MHLUnkrKgtzdzatp"
-			]
-		},
-		"localhost/interfaces/Uniswap/IUniswapV2Pair.sol": {
-			"keccak256": "0xcfb57aaf6da1c47f8fdd4c0160ea047dbf56bdb7846f3af32e1021f4ba048fc9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://564084248624185c1c5a5aa9c8f84680e6181dc7d2bd618a69746917e1a1d438",
-				"dweb:/ipfs/QmUiJP9TSuyFfbeA8QSSogwXRzP9wZMYu2weCLefVRWKSU"
-			]
-		},
-		"localhost/libraries/Lock3rV1Library.sol": {
-			"keccak256": "0x1aa7667973b9cb8972839079bfd3e9cecb5f479c1b91dc29272aae2aef790684",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://3207de5567a5d58e1b43054afe335ae5bfd645f05499adc655049e58c85b0d3a",
-				"dweb:/ipfs/QmWJiFHjbHYBJBR3JZEzamtVJZ2vBiTN7aME6s6WNXhsow"
+				"bzz-raw://9695f1255376b725e43d5a1bab33f14925d905d519458e6f40a5085abbd5d6df",
+				"dweb:/ipfs/QmUy5W5FBhupo9HumwtrLR2L6r3tSGJ6wncs2w4X7JyQEx"
 			]
 		}
 	},

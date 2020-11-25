@@ -83,7 +83,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "Mint",
+				"name": "Fund",
 				"type": "event"
 			},
 			{
@@ -330,6 +330,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "fund",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "liquidity",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "getReserves",
 				"outputs": [
@@ -381,25 +400,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					}
-				],
-				"name": "mint",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "liquidity",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -670,7 +670,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/Lock3rFlat.sol": "IUniswapV2Pair"
+			"localhost/Lock3r.sol": "IUniswapV2Pair"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -684,12 +684,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"localhost/Lock3rFlat.sol": {
-			"keccak256": "0x842eb6db535608f1efbc1fa984274d3c761cce50d63167c98b77b2cf3707b875",
+		"localhost/Lock3r.sol": {
+			"keccak256": "0x7a6baee9a823f866755c30926a9ec47e0953736fc22cca1ee38998391a6f5813",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e135ce466ac8983ba2fb42f2d58fcdde2481e5bde732800fadade4150683e4af",
-				"dweb:/ipfs/QmeSJ3VYQN94UwyQMsLxqH3E4Ag9TeJk7CVus5HeLepSVr"
+				"bzz-raw://16bc89297b46aee595987ea7779355cf5538d47e2df2502faaf0242d0d6d1a36",
+				"dweb:/ipfs/QmXB8Rk7SBzDMdWVm2JBXyuTmhpxrXxxDPrPvugKjRC3Mm"
 			]
 		}
 	},

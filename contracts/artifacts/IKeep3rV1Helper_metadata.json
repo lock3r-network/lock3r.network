@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasUsed",
+						"type": "uint256"
+					}
+				],
+				"name": "getQuoteLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Migrations.sol": "IKeep3rV1Helper"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Migrations.sol": {
+			"keccak256": "0xc1cac783380f4832ff2c8c82fbc9e6758b6fcc5228574afad56f94970ba2c062",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6ca31047eb168fa1befb555ff87c2840dd7b60579c9f17d258dd9eab71aa25a0",
+				"dweb:/ipfs/QmXGdYwm47HMrqdghJDbHbfMBiiBMRuBeybSjh88qxT4Tu"
+			]
+		}
+	},
+	"version": 1
+}

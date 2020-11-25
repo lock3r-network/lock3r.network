@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasUsed",
+						"type": "uint256"
+					}
+				],
+				"name": "getQuoteLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3r.sol": "IV1Helper"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3r.sol": {
+			"keccak256": "0x70f58491a9d0efa65a0d7b24b3406a20b1f52313a9e686ced2c36c6b6b1cab2b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dd21fdf356af4c339c6f33caf97cacff43e17109ac6a5e8618ca8e6fb63c83a9",
+				"dweb:/ipfs/QmVkLaL41AFtBqVwknQAiSfZL2KcmCu9o9p6amDLVjz1CL"
+			]
+		}
+	},
+	"version": 1
+}

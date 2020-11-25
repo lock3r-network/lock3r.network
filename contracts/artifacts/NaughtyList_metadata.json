@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3r.sol": "NaughtyList"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3r.sol": {
+			"keccak256": "0x4957ea4a309acf06a353d26220b58fd21a8b6f0caef2f816a73bc6d5fe4ef351",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd276d1c2c5ac268c16df4bd7335a5ad06e551e062ad0c169bf16df279a8c2fc",
+				"dweb:/ipfs/Qmd1JQB66q9wuHdfr7L6ntfwfzt7ShVYNHG9hGDxsKVYS2"
+			]
+		}
+	},
+	"version": 1
+}

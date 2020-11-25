@@ -54,10 +54,10 @@
 			"burn(address)": "89afcb44",
 			"decimals()": "313ce567",
 			"factory()": "c45a0155",
+			"fund(address)": "23024408",
 			"getReserves()": "0902f1ac",
 			"initialize(address,address)": "485cc955",
 			"kLast()": "7464fc3d",
-			"mint(address)": "6a627842",
 			"name()": "06fdde03",
 			"nonces(address)": "7ecebe00",
 			"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": "d505accf",
@@ -153,7 +153,7 @@
 					"type": "uint256"
 				}
 			],
-			"name": "Mint",
+			"name": "Fund",
 			"type": "event"
 		},
 		{
@@ -400,6 +400,25 @@
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				}
+			],
+			"name": "fund",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "liquidity",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "getReserves",
 			"outputs": [
@@ -451,25 +470,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "to",
-					"type": "address"
-				}
-			],
-			"name": "mint",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "liquidity",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{

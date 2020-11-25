@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					}
+				],
+				"name": "getReserve",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/libraries/Flattened/Lock3rV1Library.sol": "Lock3rV1Library"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/libraries/Flattened/Lock3rV1Library.sol": {
+			"keccak256": "0x8415d7ff9cac18e2563bf33678c3d36e096297c66a0714b886490f9db1a94d16",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://410802e5bbeb21cd49e9710a136bcb500d62d0457c6f41617dd71fb0fd9ba9f9",
+				"dweb:/ipfs/QmTKwVZjr3Gd8eBhFcQR16Qy5bth4jdhiuJybE1HHc8HJr"
+			]
+		}
+	},
+	"version": 1
+}

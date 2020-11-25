@@ -1,0 +1,160 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "strategyPID",
+						"type": "uint256"
+					}
+				],
+				"name": "executeStrategy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mostProfitableStrategyInETH",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "profit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "strategyID",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numberOfStrategies",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "strategyPID",
+						"type": "uint256"
+					}
+				],
+				"name": "strategyInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "strategyName",
+								"type": "string"
+							},
+							{
+								"internalType": "bool[]",
+								"name": "token0Out",
+								"type": "bool[]"
+							},
+							{
+								"internalType": "address[]",
+								"name": "pairs",
+								"type": "address[]"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "feeOnTransfers",
+								"type": "uint256[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "cBTCSupport",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "feeOff",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ICoreFlashArb.Strategy",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "strategyID",
+						"type": "uint256"
+					}
+				],
+				"name": "strategyProfitInReturnToken",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "profit",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/CoreFlashArb.sol": "ICoreFlashArb"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/CoreFlashArb.sol": {
+			"keccak256": "0x19f1ff8d95268e787542ef523b0dd3e6ce9bd7831c623411305ac754534cbbf4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ebbaef2b6949cd3d19243e1ff2004766b0a94a1a55c874a7b2c27358d6a3460",
+				"dweb:/ipfs/QmeUfkwEXcnioL5qYbv8vv1YPAJYRMjemT9m9vM4QzJgoM"
+			]
+		}
+	},
+	"version": 1
+}

@@ -6,10 +6,66 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "KPRH",
+				"outputs": [
+					{
+						"internalType": "contract IKeep3rV1Helper",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "locker",
 						"type": "address"
 					},
 					{
@@ -30,8 +86,113 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "totalBonded",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "locker",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minBond",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "earned",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					}
+				],
+				"name": "isMinLocker",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "job",
+						"type": "address"
+					}
+				],
+				"name": "jobs",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "locker",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "receipt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bonding",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "unbond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "locker",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "credit",
+						"type": "address"
+					}
+				],
+				"name": "unbondings",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -46,19 +207,26 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "keeper",
+						"name": "bonding",
 						"type": "address"
 					}
 				],
-				"name": "votes",
-				"outputs": [
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "locker",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "worked",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -75,7 +243,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/Lock3rV1Helper.sol": "IKeep3rV1"
+			"localhost/Migrations.sol": "IKeep3rV1"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -89,12 +257,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"localhost/Lock3rV1Helper.sol": {
-			"keccak256": "0xc79da950cd4433720384548ea4c5133275d66bba7d1a8c9083a53cc86ef4caa9",
+		"localhost/Migrations.sol": {
+			"keccak256": "0xc1cac783380f4832ff2c8c82fbc9e6758b6fcc5228574afad56f94970ba2c062",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://10a0ac41615b5061f31aa9df80e353c9f9f1b596a409f4a0e7d87cc3335f00db",
-				"dweb:/ipfs/QmeRyXzqZ1b1Bejdgcry5SsZeLsojtmxnw4E2ihufShS4a"
+				"bzz-raw://6ca31047eb168fa1befb555ff87c2840dd7b60579c9f17d258dd9eab71aa25a0",
+				"dweb:/ipfs/QmXGdYwm47HMrqdghJDbHbfMBiiBMRuBeybSjh88qxT4Tu"
 			]
 		}
 	},

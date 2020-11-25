@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Collection of functions related to the address type",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/libraries/Flattened/Lock3r.sol": "Address"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/libraries/Flattened/Lock3r.sol": {
+			"keccak256": "0xd28e19f84aca34261e7821c063a7f4f0c2e12fa4ca01eb07ce5c7d522697d7a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://caf683a3122fce1cb83e939494863b48f95d391759b82d7501ff0c4725f2e545",
+				"dweb:/ipfs/Qmcva4oH9gsJgsnEZSdSDunxSvqjS2yK7C2UEsBWHwunte"
+			]
+		}
+	},
+	"version": 1
+}

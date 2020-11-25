@@ -6,21 +6,27 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "BASE",
-				"outputs": [
+				"anonymous": false,
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
+				"name": "OwnershipTransferred",
+				"type": "event"
 			},
 			{
 				"inputs": [],
-				"name": "BOOST",
+				"name": "BASE",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -49,9 +55,35 @@
 				"name": "LK3R",
 				"outputs": [
 					{
-						"internalType": "contract ILock3rV1",
+						"internalType": "contract IMiniLock3r",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SWAP",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -65,6 +97,32 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UV2SO",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2SlidingOracle",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "WETH",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -144,11 +202,86 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "eth",
+						"type": "uint256"
+					}
+				],
+				"name": "quote",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "lockertoken",
+						"type": "address"
+					}
+				],
+				"name": "setToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -159,7 +292,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/Lock3rV1Helper.sol": "Lock3rV1Helper"
+			"localhost/Lock3rHelper.sol": "Lock3rV1Helper"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -173,12 +306,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"localhost/Lock3rV1Helper.sol": {
-			"keccak256": "0x1c5dccdfac8ae67df82fe6a87fab6d8bb1e47545c7a19df8f5aef2b04eb67735",
+		"localhost/Lock3rHelper.sol": {
+			"keccak256": "0x44a3983beff233a73a79e3057b60067398b26f1eab580ead00d5a16339b24a89",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2d54674fd12edfc201b6102739ccf142c37b76f5d6fd7086db6e16eb2a7454ac",
-				"dweb:/ipfs/QmTxgiv6xYoMsw6DmhWgG8pb4DMPRAuoSSBtw67w6Uytwi"
+				"bzz-raw://6be32922644e6c37cf22ad39ff4daba73218dfac28fc85eb244a1f1507aa758a",
+				"dweb:/ipfs/QmdtZsTrebWa9vB2v2B8vfSyT5RMHeJgvmWA1uF3NiKCg5"
 			]
 		}
 	},

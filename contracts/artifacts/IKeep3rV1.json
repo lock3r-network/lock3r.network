@@ -45,17 +45,81 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
+			"KPRH()": "09aff02b",
+			"approve(address,uint256)": "095ea7b3",
+			"balanceOf(address)": "70a08231",
 			"bonds(address,address)": "a39744b5",
-			"totalBonded()": "44d96e95",
-			"votes(address)": "d8bff5a5"
+			"isMinLocker(address,uint256,uint256,uint256)": "392c4c6c",
+			"jobs(address)": "3d1f0bb9",
+			"receipt(address,address,uint256)": "8d9acd2e",
+			"unbond(address,uint256)": "a5d059ca",
+			"unbondings(address,address)": "9af77284",
+			"withdraw(address)": "51cff8d9",
+			"worked(address)": "5feeb794"
 		}
 	},
 	"abi": [
 		{
+			"inputs": [],
+			"name": "KPRH",
+			"outputs": [
+				{
+					"internalType": "contract IKeep3rV1Helper",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "keeper",
+					"name": "spender",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "approve",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				}
+			],
+			"name": "balanceOf",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "locker",
 					"type": "address"
 				},
 				{
@@ -76,8 +140,113 @@
 			"type": "function"
 		},
 		{
-			"inputs": [],
-			"name": "totalBonded",
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "locker",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "minBond",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "earned",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "age",
+					"type": "uint256"
+				}
+			],
+			"name": "isMinLocker",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "job",
+					"type": "address"
+				}
+			],
+			"name": "jobs",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "credit",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "locker",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "receipt",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "bonding",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "unbond",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "locker",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "credit",
+					"type": "address"
+				}
+			],
+			"name": "unbondings",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -92,19 +261,26 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "keeper",
+					"name": "bonding",
 					"type": "address"
 				}
 			],
-			"name": "votes",
-			"outputs": [
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
 				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
+					"internalType": "address",
+					"name": "locker",
+					"type": "address"
 				}
 			],
-			"stateMutability": "view",
+			"name": "worked",
+			"outputs": [],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		}
 	]

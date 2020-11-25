@@ -2,20 +2,247 @@
 pragma solidity ^0.6.12;
 pragma experimental ABIEncoderV2;
 
-import '@openzeppelin/contracts/math/SafeMath.sol';
-// import "./interfaces/DelegateInterface.sol";
-import "./interfaces/Lock3r/ILock3rV1.sol";
+// From https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/Math.sol
+// Subject to the MIT license.
+
+/**
+ * 
+ /$$                           /$$        /$$$$$$                  /$$   /$$             /$$                                       /$$      
+| $$                          | $$       /$$__  $$                | $$$ | $$            | $$                                      | $$      
+| $$        /$$$$$$   /$$$$$$$| $$   /$$|__/  \ $$  /$$$$$$       | $$$$| $$  /$$$$$$  /$$$$$$   /$$  /$$  /$$  /$$$$$$   /$$$$$$ | $$   /$$
+| $$       /$$__  $$ /$$_____/| $$  /$$/   /$$$$$/ /$$__  $$      | $$ $$ $$ /$$__  $$|_  $$_/  | $$ | $$ | $$ /$$__  $$ /$$__  $$| $$  /$$/
+| $$      | $$  \ $$| $$      | $$$$$$/   |___  $$| $$  \__/      | $$  $$$$| $$$$$$$$  | $$    | $$ | $$ | $$| $$  \ $$| $$  \__/| $$$$$$/ 
+| $$      | $$  | $$| $$      | $$_  $$  /$$  \ $$| $$            | $$\  $$$| $$_____/  | $$ /$$| $$ | $$ | $$| $$  | $$| $$      | $$_  $$ 
+| $$$$$$$$|  $$$$$$/|  $$$$$$$| $$ \  $$|  $$$$$$/| $$            | $$ \  $$|  $$$$$$$  |  $$$$/|  $$$$$/$$$$/|  $$$$$$/| $$      | $$ \  $$
+|________/ \______/  \_______/|__/  \__/ \______/ |__/            |__/  \__/ \_______/   \___/   \_____/\___/  \______/ |__/      |__/  \__/
+
+  /$$$$$$                                                                                           
+ /$$__  $$                                                                                          
+| $$  \__/  /$$$$$$  /$$    /$$ /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$  /$$$$$$ 
+| $$ /$$$$ /$$__  $$|  $$  /$$//$$__  $$ /$$__  $$| $$__  $$ |____  $$| $$__  $$ /$$_____/ /$$__  $$
+| $$|_  $$| $$  \ $$ \  $$/$$/| $$$$$$$$| $$  \__/| $$  \ $$  /$$$$$$$| $$  \ $$| $$      | $$$$$$$$
+| $$  \ $$| $$  | $$  \  $$$/ | $$_____/| $$      | $$  | $$ /$$__  $$| $$  | $$| $$      | $$_____/
+|  $$$$$$/|  $$$$$$/   \  $/  |  $$$$$$$| $$      | $$  | $$|  $$$$$$$| $$  | $$|  $$$$$$$|  $$$$$$$
+ \______/  \______/     \_/    \_______/|__/      |__/  |__/ \_______/|__/  |__/ \_______/ \_______/
+ * 
+*/
+
+/**
+ * @dev Wrappers over Solidity's arithmetic operations with added overflow
+ * checks.
+ *
+ * Arithmetic operations in Solidity wrap on overflow. This can easily result
+ * in bugs, because programmers usually assume that an overflow raises an
+ * error, which is the standard behavior in high level programming languages.
+ * `SafeMath` restores this intuition by reverting the transaction when an
+ * operation overflows.
+ *
+ * Using this library instead of the unchecked operations eliminates an entire
+ * class of bugs, so it's recommended to use it always.
+ */
+library SafeMath {
+    /**
+     * @dev Returns the addition of two unsigned integers, reverting on overflow.
+     *
+     * Counterpart to Solidity's `+` operator.
+     *
+     * Requirements:
+     * - Addition cannot overflow.
+     */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a, "SafeMath: addition overflow");
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the addition of two unsigned integers, reverting with custom message on overflow.
+     *
+     * Counterpart to Solidity's `+` operator.
+     *
+     * Requirements:
+     * - Addition cannot overflow.
+     */
+    function add(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a, errorMessage);
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the subtraction of two unsigned integers, reverting on underflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+     * - Subtraction cannot underflow.
+     */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        return sub(a, b, "SafeMath: subtraction underflow");
+    }
+
+    /**
+     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on underflow (when the result is negative).
+     *
+     * Counterpart to Solidity's `-` operator.
+     *
+     * Requirements:
+     * - Subtraction cannot underflow.
+     */
+    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b <= a, errorMessage);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the multiplication of two unsigned integers, reverting on overflow.
+     *
+     * Counterpart to Solidity's `*` operator.
+     *
+     * Requirements:
+     * - Multiplication cannot overflow.
+     */
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the multiplication of two unsigned integers, reverting on overflow.
+     *
+     * Counterpart to Solidity's `*` operator.
+     *
+     * Requirements:
+     * - Multiplication cannot overflow.
+     */
+    function mul(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, errorMessage);
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the integer division of two unsigned integers.
+     * Reverts on division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:
+     * - The divisor cannot be zero.
+     */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        return div(a, b, "SafeMath: division by zero");
+    }
+
+    /**
+     * @dev Returns the integer division of two unsigned integers.
+     * Reverts with custom message on division by zero. The result is rounded towards zero.
+     *
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+     * uses an invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:
+     * - The divisor cannot be zero.
+     */
+    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        // Solidity only automatically asserts when dividing by 0
+        require(b > 0, errorMessage);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    /**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:
+     * - The divisor cannot be zero.
+     */
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        return mod(a, b, "SafeMath: modulo by zero");
+    }
+
+    /**
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * Reverts with custom message when dividing by zero.
+     *
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+     * invalid opcode to revert (consuming all remaining gas).
+     *
+     * Requirements:
+     * - The divisor cannot be zero.
+     */
+    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+        require(b != 0, errorMessage);
+        return a % b;
+    }
+}
+
+interface ILock3r {
+    function addVotes(address voter, uint amount) external;
+    function isLocker(address) external returns (bool);
+    function worked(address locker) external;
+    function removeVotes(address voter, uint amount) external;
+    function addLK3RCredit(address job, uint amount) external;
+    function approveLiquidity(address liquidity) external;
+    function revokeLiquidity(address liquidity) external;
+    function addJob(address job) external;
+    function removeJob(address job) external;
+    function setLock3rHelper(address _lk3rh) external;
+    function setGovernance(address _governance) external;
+    function acceptGovernance() external;
+    function getPriorVotes(address account, uint blockNumber) external view returns (uint);
+    function totalBonded() external view returns (uint);
+    function setTreasury(address _treasury) external;
+    function setLiquidityFee(uint newFee) external;
+    function setBondingDelay (uint256 newBond) external;
+    function setUnbondingDelay (uint256 newUnbond) external;
+    function setLiquidityBondingDelay (uint256 newLiqBond) external;
+    function revoke(address locker) external;
+   
+}
 
 contract Governance {
     using SafeMath for uint;
     /// @notice The name of this contract
-    string public constant name = "Governance";
+    string public constant name = "Lock3rHolyGovernance";
 
     /// @notice The number of votes in support of a proposal required in order for a quorum to be reached and for a vote to succeed
-    uint public _quorumVotes = 5000; // % of total supply required
+    uint public _quorumVotes = 7500; // % of total supply required
 
     /// @notice The number of votes required in order for a voter to become a proposer
-    uint public _proposalThreshold = 5000;
+    uint public _proposalThreshold = 7500;
 
     uint public constant BASE = 10000;
 
@@ -49,7 +276,7 @@ contract Governance {
     function votingPeriod() public pure returns (uint) { return 40_320; } // ~7 days in blocks (assuming 15s blocks)
 
     /// @notice The address of the governance token
-    ILock3rV1 immutable public LK3R;
+    ILock3r immutable public LK3R;
 
     /// @notice The total number of proposals
     uint public proposalCount;
@@ -98,8 +325,8 @@ contract Governance {
 
     /// @notice The EIP-712 typehash for the contract's domain
     bytes32 public constant DOMAIN_TYPEHASH = keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
-
-
+    
+    
     bytes32 public immutable DOMAINSEPARATOR;
 
     /// @notice The EIP-712 typehash for the ballot struct used by the contract
@@ -119,6 +346,9 @@ contract Governance {
 
     /// @notice An event emitted when a proposal has been executed in the Timelock
     event ProposalExecuted(uint id);
+    
+    
+   
 
     function proposeJob(address job) public {
         require(msg.sender == address(LK3R), "Governance::proposeJob: only VOTER can propose new jobs");
@@ -213,7 +443,7 @@ contract Governance {
         require(state != ProposalState.Executed, "Governance::cancel: cannot cancel executed proposal");
 
         Proposal storage proposal = proposals[proposalId];
-        require(proposal.proposer != address(LK3R) &&
+        require(proposal.proposer != address(LK3R) && 
                 LK3R.getPriorVotes(proposal.proposer, block.number.sub(1)) < proposalThreshold(), "Governance::cancel: proposer above threshold");
 
         proposal.canceled = true;
@@ -305,82 +535,78 @@ contract Governance {
     uint public constant MAXIMUM_DELAY = 30 days;
 
     uint public delay = MINIMUM_DELAY;
-
+    
     address public guardian;
     address public pendingGuardian;
-
-    function setGuardian(address _guardian) external {
-        require(msg.sender == guardian, "Lock3rGovernance::setGuardian: !guardian");
+    
+    		
+    modifier onlyGuardian(){
+        require(msg.sender == guardian , "Error: caller is not the guardian address");
+        _;
+    }
+    
+    function setGuardian(address _guardian) external onlyGuardian{
         pendingGuardian = _guardian;
     }
-
+    
     function acceptGuardianship() external {
         require(msg.sender == pendingGuardian, "Lock3rGovernance::setGuardian: !pendingGuardian");
         guardian = pendingGuardian;
     }
-
-    function addVotes(address voter, uint amount) external {
-        require(msg.sender == guardian, "Lock3rGovernance::addVotes: !guardian");
+    
+    function addVotes(address voter, uint amount) external onlyGuardian{
         LK3R.addVotes(voter, amount);
     }
-    function removeVotes(address voter, uint amount) external {
-        require(msg.sender == guardian, "Lock3rGovernance::removeVotes: !guardian");
+    function removeVotes(address voter, uint amount) external onlyGuardian{
         LK3R.removeVotes(voter, amount);
     }
-    function addLK3RCredit(address job, uint amount) external {
-        require(msg.sender == guardian, "Lock3rGovernance::addLK3RCredit: !guardian");
+    function addLK3RCredit(address job, uint amount) external onlyGuardian{
         LK3R.addLK3RCredit(job, amount);
     }
-    function approveLiquidity(address liquidity) external {
-        require(msg.sender == guardian, "Lock3rGovernance::approveLiquidity: !guardian");
+    function approveLiquidity(address liquidity) external onlyGuardian{
         LK3R.approveLiquidity(liquidity);
     }
-    function revokeLiquidity(address liquidity) external {
-        require(msg.sender == guardian, "Lock3rGovernance::revokeLiquidity: !guardian");
+    function revokeLiquidity(address liquidity) external onlyGuardian{
         LK3R.revokeLiquidity(liquidity);
     }
-    function addJob(address job) external {
-        require(msg.sender == guardian, "Lock3rGovernance::addJob: !guardian");
+    function addJob(address job) external onlyGuardian{
         LK3R.addJob(job);
     }
-    function removeJob(address job) external {
-        require(msg.sender == guardian, "Lock3rGovernance::removeJob: !guardian");
+    function removeJob(address job) external onlyGuardian{
         LK3R.removeJob(job);
     }
-    function setLock3rHelper(address Lk3rh) external {
-        require(msg.sender == guardian, "Lock3rGovernance::setLock3rHelper: !guardian");
-        LK3R.setLock3rHelper(Lk3rh);
+    function setLock3rHelper(address lk3rh) external onlyGuardian{
+        LK3R.setLock3rHelper(lk3rh);
     }
-    function setGovernance(address _governance) external {
-        require(msg.sender == guardian, "Lock3rGovernance::setGovernance: !guardian");
+    function setGovernance(address _governance) external onlyGuardian{
         LK3R.setGovernance(_governance);
     }
-    function acceptGovernance() external {
-        require(msg.sender == guardian, "Lock3rGovernance::acceptGovernance: !guardian");
+    function acceptGovernance() external onlyGuardian{
         LK3R.acceptGovernance();
     }
-    function dispute(address Locker) external {
-        require(msg.sender == guardian, "Lock3rGovernance::dispute: !guardian");
-        LK3R.dispute(Locker);
+    function setTreasury(address _treasury) external onlyGuardian{
+        LK3R.setTreasury(_treasury);
     }
-    function slash(address bonded, address Locker, uint amount) external {
-        require(msg.sender == guardian, "Lock3rGovernance::slash: !guardian");
-        LK3R.slash(bonded, Locker, amount);
+    
+    function setLiquidityFee(uint newFee) external onlyGuardian {
+        LK3R.setLiquidityFee(newFee);
     }
-    function revoke(address Locker) external {
-        require(msg.sender == guardian, "Lock3rGovernance::revoke: !guardian");
-        LK3R.revoke(Locker);
+    function setBondingDelay(uint256 newDelay) external onlyGuardian {
+        LK3R.setBondingDelay(newDelay);
     }
-    function resolve(address Locker) external {
-        require(msg.sender == guardian, "Lock3rGovernance::resolve: !guardian");
-        LK3R.resolve(Locker);
+    function setUnbondingDelay(uint256 newDelay) external onlyGuardian {
+        LK3R.setUnbondingDelay(newDelay);
     }
+    function setLiquidityBondingDelay(uint256 newDelay) external onlyGuardian {
+        LK3R.setLiquidityBondingDelay(newDelay);
+    }
+    
 
     mapping (bytes32 => bool) public queuedTransactions;
 
     constructor(address token_) public {
         guardian = msg.sender;
-        LK3R = ILock3rV1(token_);
+        LK3R = ILock3r(token_);
         DOMAINSEPARATOR = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), getChainId(), address(this)));
     }
 

@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					}
+				],
+				"name": "getReserve",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3r.sol": "Keep3rV1Library"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3r.sol": {
+			"keccak256": "0xf0cbf9ee593c21432b9b3f4d2649790c0c92648a09b16349e3ca34a222ed2a74",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1df9ce1c29d29bed230ea84ae4d109e0de3c4a8d550cf49d9edaf7031534cac1",
+				"dweb:/ipfs/QmYWnhJinmzANH1ktnK11HAeddcfbDxeH7L5c5Axy6Ppvv"
+			]
+		}
+	},
+	"version": 1
+}

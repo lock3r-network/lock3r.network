@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "wad",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/Lock3rOracle.sol": "WETH9"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Lock3rOracle.sol": {
+			"keccak256": "0x4cd1e3837a1e1957e8b55a20f0299c4b729ad7a39c424b1a90f5061a9b82a4ee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://927b9bcab8a6790d344f2d9085f2621f081168069a719a0a50162a04c1c30bc6",
+				"dweb:/ipfs/QmSNCsPeSszxd7zwhSX9tjFrgjmT1EqKtKEVqsXQkELPfz"
+			]
+		}
+	},
+	"version": 1
+}

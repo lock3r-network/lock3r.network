@@ -365,7 +365,7 @@
 				"name": "LK3R",
 				"outputs": [
 					{
-						"internalType": "contract ILock3rV1",
+						"internalType": "contract ILock3r",
 						"name": "",
 						"type": "address"
 					}
@@ -576,19 +576,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "Locker",
-						"type": "address"
-					}
-				],
-				"name": "dispute",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -967,37 +954,24 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "Locker",
-						"type": "address"
-					}
-				],
-				"name": "resolve",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "Locker",
-						"type": "address"
-					}
-				],
-				"name": "revoke",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "liquidity",
 						"type": "address"
 					}
 				],
 				"name": "revokeLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "setBondingDelay",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1044,8 +1018,34 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "newDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "setLiquidityBondingDelay",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setLiquidityFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
-						"name": "Lk3rh",
+						"name": "lk3rh",
 						"type": "address"
 					}
 				],
@@ -1084,21 +1084,24 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "bonded",
+						"name": "_treasury",
 						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "Locker",
-						"type": "address"
-					},
+					}
+				],
+				"name": "setTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "newDelay",
 						"type": "uint256"
 					}
 				],
-				"name": "slash",
+				"name": "setUnbondingDelay",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1234,28 +1237,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/math/SafeMath.sol": {
-			"keccak256": "0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5",
-				"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV"
-			]
-		},
 		"localhost/Lock3rGovernance.sol": {
-			"keccak256": "0xf50228a3c77c9001c182fd5faa20b0d4dd03c3a8a9e1e3554a5e173717d2e82d",
+			"keccak256": "0xbcb79169378f6c4743da77505c3a6b001a74252bb8d7bd23f71b4c091f8c4903",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b64b7a8eeb0f93866fe115f83091e83d8221c8d19c2035df34853a4c27ca92dd",
-				"dweb:/ipfs/QmUCrazrok8sSQ2nz9Nu7k8LRcj763w5Vtd7SyK9Zm1fHA"
-			]
-		},
-		"localhost/interfaces/Lock3r/ILock3rV1.sol": {
-			"keccak256": "0xfd3eb1bc8dfa1a657c3a566ab111296ccbf037f66170b3ebee9ad0668d1d6aaa",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://abba90dd506780098c3bbc9afe160917d21e25fddf01d82ec9f9a4fd8bc2e118",
-				"dweb:/ipfs/QmfXkujUdQmFNhKB9ui1n5dZa3hsCk7QYmUYy1BkPvwWi1"
+				"bzz-raw://1e152939722ff8995390913782c95d22c8655ae180c422bb35e506197da0a0ac",
+				"dweb:/ipfs/QmP4xDHdBQTz3RrWaPZHH4gzSTAoj36dt5FXq5rKFaW5fF"
 			]
 		}
 	},

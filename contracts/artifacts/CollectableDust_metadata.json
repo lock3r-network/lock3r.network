@@ -85,7 +85,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/CollectableDust.sol": "CollectableDust"
+			"localhost/Lock3rPresale.sol": "CollectableDust"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -123,7 +123,7 @@
 				"dweb:/ipfs/QmafhM2Nd1aP43QVB1eRRZaqRXQKswNfQcWi8U8xjrxCfN"
 			]
 		},
-		"localhost/CollectableDust.sol": {
+		"localhost/Lock3rPresale.sol": {
 			"keccak256": "0xf104e9824669397109b49f411017d11ca76532b9dd4af519178e1c489b8592d8",
 			"license": "MIT",
 			"urls": [

@@ -1,7 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.12;
 
-contract Lock3rV1JobRegistry {
+/*
+
+░░░░░██╗░█████╗░██████╗░  ██████╗░███████╗░██████╗░██╗░██████╗████████╗██████╗░██╗░░░██╗
+░░░░░██║██╔══██╗██╔══██╗  ██╔══██╗██╔════╝██╔════╝░██║██╔════╝╚══██╔══╝██╔══██╗╚██╗░██╔╝
+░░░░░██║██║░░██║██████╦╝  ██████╔╝█████╗░░██║░░██╗░██║╚█████╗░░░░██║░░░██████╔╝░╚████╔╝░
+██╗░░██║██║░░██║██╔══██╗  ██╔══██╗██╔══╝░░██║░░╚██╗██║░╚═══██╗░░░██║░░░██╔══██╗░░╚██╔╝░░
+╚█████╔╝╚█████╔╝██████╦╝  ██║░░██║███████╗╚██████╔╝██║██████╔╝░░░██║░░░██║░░██║░░░██║░░░
+░╚════╝░░╚════╝░╚═════╝░  ╚═╝░░╚═╝╚══════╝░╚═════╝░╚═╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░░╚═╝░░░
+*/
+contract Lock3rJobRegistry {
     /// @notice governance address for the governance contract
     address public governance;
     address public pendingGovernance;
@@ -35,8 +44,8 @@ contract Lock3rV1JobRegistry {
     }
 
     function set(address _address, string calldata _name, string calldata _ipfs, string calldata _docs) external {
-        require(msg.sender == governance, "Lock3rV1JobRegistry::add: !gov");
-        require(jobAdded[_address], "Lock3rV1JobRegistry::add: no job");
+        require(msg.sender == governance, "Lock3rJobRegistry::add: !gov");
+        require(jobAdded[_address], "Lock3rJobRegistry::add: no job");
         _job storage __job = jobData[_address];
 
         __job._name = _name;

@@ -1,247 +1,412 @@
-/* Lock3r – lk3r.network - 2020 */
+pragma solidity ^0.5.0;
 
-pragma solidity 0.6.6;
-
-interface IERC20 {
-    function totalSupply() external view returns (uint);
-    function balanceOf(address account) external view returns (uint);
-    function transfer(address recipient, uint amount) external returns (bool);
-    function allowance(address owner, address spender) external view returns (uint);
-    function approve(address spender, uint amount) external returns (bool);
-    function transferFrom(address sender, address recipient, uint amount) external returns (bool);
-    event Transfer(address indexed from, address indexed to, uint value);
-    event Approval(address indexed owner, address indexed spender, uint value);
-}
 
 library SafeMath {
-    function add(uint a, uint b) internal pure returns (uint) {
-        uint c = a + b;
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
         require(c >= a, "SafeMath: addition overflow");
 
         return c;
     }
-    function sub(uint a, uint b) internal pure returns (uint) {
+
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
         return sub(a, b, "SafeMath: subtraction overflow");
     }
-    function sub(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
+
+    function sub(uint256 a, uint256 b, string memory errorMessage)
+        internal
+        pure
+        returns (uint256)
+    {
         require(b <= a, errorMessage);
-        uint c = a - b;
+        uint256 c = a - b;
 
         return c;
     }
-    function mul(uint a, uint b) internal pure returns (uint) {
+
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
         if (a == 0) {
             return 0;
         }
 
-        uint c = a * b;
+        uint256 c = a * b;
         require(c / a == b, "SafeMath: multiplication overflow");
 
         return c;
     }
-    function div(uint a, uint b) internal pure returns (uint) {
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
         return div(a, b, "SafeMath: division by zero");
     }
-    function div(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
+
+    function div(uint256 a, uint256 b, string memory errorMessage)
+        internal
+        pure
+        returns (uint256)
+    {
         // Solidity only automatically asserts when dividing by 0
         require(b > 0, errorMessage);
-        uint c = a / b;
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
 
         return c;
     }
+
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        return mod(a, b, "SafeMath: modulo by zero");
+    }
+
+    function mod(uint256 a, uint256 b, string memory errorMessage)
+        internal
+        pure
+        returns (uint256)
+    {
+        require(b != 0, errorMessage);
+        return a % b;
+    }
 }
 
-contract Lock3rPresale {
-    using SafeMath for uint256;
 
-    // cannot purchase until started
-    bool public started;
+contract Ownable {
+    address private _owner;
 
-    IERC20 LK3R;
-    address lk3rAddress;
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
 
-    address public manager;
-    address public managerPending;
-    uint256 constant managerS = 80;
-    uint256 public managerWithdrawn;
-    address public overseer;
-    address public overseerPending;
-    uint256 constant overseerS = 20;
-    uint256 public overseerWithdrawn;
-
-    uint256 public unitPrice = 1e18/2;
-    uint256 public minimumOrder = 100000;
-    uint256 public BP = 100000;
-
-    /** @notice the date when purchased LK3R can be claimed */
-    uint256 public unlocksOn;
-
-    /** @notice the date when LK3R can no longer be purchased from the contract */
-    uint256 public endsOn;
-
-    /** @notice percentage bonus actived upon purchasing more than the trigger
-    * value. */
-    uint256 public bonusTrigger;
-    uint256 public bonusPercentage;
-
-    // Stats:
-    uint256 public totalForSale;
-    uint256 public totalSold;
-    uint256 public totalSettled;
-    uint256 public weiRaised;
-
-    mapping(address => uint256) public balance;
-
-    event Purchase (address indexed buyer, uint256 amount, uint256 price);
-
-    constructor(address _lk3r) public {
-        manager = msg.sender;
-        overseer = msg.sender;
-        LK3R = IERC20(_lk3r);
-        lk3rAddress = _lk3r;
+    /**
+     * @dev Initializes the contract setting the deployer as the initial owner.
+     */
+    constructor() internal {
+        _owner = msg.sender;
+        emit OwnershipTransferred(address(0), _owner);
     }
 
-    modifier onlyManager {
-        require( msg.sender == manager, "Only the manager can call this function." );
+    /**
+     * @dev Returns the address of the current owner.
+     */
+    function owner() public view returns (address) {
+        return _owner;
+    }
+
+    /**
+     * @dev Throws if called by any account other than the owner.
+     */
+    modifier onlyOwner() {
+        require(isOwner(), "Ownable: caller is not the owner");
         _;
     }
 
-    modifier onlyOverseer {
-        require( msg.sender == overseer, "Only the overseer can call this function.");
-        _;
+    /**
+     * @dev Returns true if the caller is the current owner.
+     */
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
     }
 
-    function transferRole(address _new) public {
-        require(msg.sender == manager || msg.sender == overseer, "!manager or overseer");
-        if (msg.sender == manager) { managerPending = _new; return; }
-        if (msg.sender == overseer) { overseerPending = _new; return; }
+    /**
+     * @dev Leaves the contract without owner. It will not be possible to call
+     * `onlyOwner` functions anymore. Can only be called by the current owner.
+     *
+     * > Note: Renouncing ownership will leave the contract without an owner,
+     * thereby removing any functionality that is only available to the owner.
+     */
+    function renounceOwnership() public onlyOwner {
+        emit OwnershipTransferred(_owner, address(0));
+        _owner = address(0);
     }
 
-    function acceptRole() public {
-        require(msg.sender == managerPending || msg.sender == overseerPending, "!managerPending or overseerPending");
-        if (msg.sender == managerPending) { manager = managerPending; managerPending = address(0); return; }
-        if (msg.sender == overseerPending) { overseer = overseerPending; managerPending = address(0); return; }
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Can only be called by the current owner.
+     */
+    function transferOwnership(address newOwner) public onlyOwner {
+        _transferOwnership(newOwner);
     }
 
-    function managerSetPrice(uint256 _price) public onlyManager {
-        unitPrice = _price;
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     */
+    function _transferOwnership(address newOwner) internal {
+        require(
+            newOwner != address(0),
+            "Ownable: new owner is the zero address"
+        );
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
+}
+
+
+// https://docs.synthetix.io/contracts/SafeDecimalMath
+library SafeDecimalMath {
+    using SafeMath for uint;
+
+    /* Number of decimal places in the representations. */
+    uint8 public constant decimals = 18;
+    uint8 public constant highPrecisionDecimals = 27;
+
+    /* The number representing 1.0. */
+    uint public constant UNIT = 10**uint(decimals);
+
+    /* The number representing 1.0 for higher fidelity numbers. */
+    uint public constant PRECISE_UNIT = 10**uint(highPrecisionDecimals);
+    uint private constant UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR = 10**uint(highPrecisionDecimals - decimals);
+
+    /**
+     * @return Provides an interface to UNIT.
+     */
+    function unit() external pure returns (uint) {
+        return UNIT;
     }
 
-    function managerSetMinimum(uint256 _minimum) public onlyManager {
-        minimumOrder = _minimum;
+    /**
+     * @return Provides an interface to PRECISE_UNIT.
+     */
+    function preciseUnit() external pure returns (uint) {
+        return PRECISE_UNIT;
     }
 
-    function managerSetBonus(uint256 _trigger, uint256 _percentage) public onlyManager {
-        bonusTrigger = _trigger;
-        bonusPercentage = _percentage;
+    /**
+     * @return The result of multiplying x and y, interpreting the operands as fixed-point
+     * decimals.
+     *
+     * @dev A unit factor is divided out after the product of x and y is evaluated,
+     * so that product must be less than 2**256. As this is an integer division,
+     * the internal division always rounds down. This helps save on gas. Rounding
+     * is more expensive on gas.
+     */
+    function multiplyDecimal(uint x, uint y) internal pure returns (uint) {
+        /* Divide by UNIT to remove the extra factor introduced by the product. */
+        return x.mul(y) / UNIT;
     }
 
-    function managerDeposit(uint256 _amount) public onlyManager {
-        LK3R.transferFrom(msg.sender, address(this), _amount);
-        totalForSale = totalForSale.add(_amount);
-    }
+    /**
+     * @return The result of safely multiplying x and y, interpreting the operands
+     * as fixed-point decimals of the specified precision unit.
+     *
+     * @dev The operands should be in the form of a the specified unit factor which will be
+     * divided out after the product of x and y is evaluated, so that product must be
+     * less than 2**256.
+     *
+     * Unlike multiplyDecimal, this function rounds the result to the nearest increment.
+     * Rounding is useful when you need to retain fidelity for small decimal numbers
+     * (eg. small fractions or percentages).
+     */
+    function _multiplyDecimalRound(
+        uint x,
+        uint y,
+        uint precisionUnit
+    ) private pure returns (uint) {
+        /* Divide by UNIT to remove the extra factor introduced by the product. */
+        uint quotientTimesTen = x.mul(y) / (precisionUnit / 10);
 
-    /** @notice manager can reclaim unsold tokens */
-    function managerReclaim(uint256 _amount) public onlyManager {
-        // calculate the amount of tokens that haven not been sold
-        // and settled and are thus reclaimable:
-        uint256 unreclaimable = totalSold.sub(totalSettled);
-        uint256 reclaimable = LK3R.balanceOf(address(this)).sub(unreclaimable);
-        require(_amount <= reclaimable, "cannot withdraw already sold tokens");
-
-        // transfer the tokens to the manager
-        LK3R.transfer(msg.sender, _amount);
-        totalForSale = totalForSale.sub(_amount);
-    }
-
-    function managerWithdraw(uint256 _amount) public onlyManager {
-        require(managerWithdrawn.add(_amount) <= weiRaised.mul(managerS).div(100), "cannot withdraw more than the managers share");
-        managerWithdrawn = managerWithdrawn.add(_amount);
-        msg.sender.transfer(_amount);
-    }
-
-    function overseerWithdraw(uint _amount) public onlyOverseer {
-        require(overseerWithdrawn.add(_amount) <= weiRaised.mul(overseerS).div(100), "cannot withdraw more than overseerS");
-        overseerWithdrawn = overseerWithdrawn.add(_amount);
-        msg.sender.transfer(_amount);
-    }
-
-    function managerClose(uint256 amount) public onlyManager {
-        require(block.timestamp > endsOn.add(31536000).mul(2), "must wait until 6 months past end date");
-        msg.sender.transfer(amount);
-    }
-
-    function managerImportBalance(address acc, uint256 bal) public onlyManager {
-        balance[acc] = balance[acc].add(bal);
-    }
-
-    function managerForceUnlock() public onlyManager {
-        unlocksOn = block.timestamp-1;
-    }
-
-    function managerSetBP(uint256 bp) public onlyManager {
-        require(bp > 100, "basis points too low");
-        BP = bp;
-    }
-
-    function start(uint256 _unlocksOn, uint256 _endsOn, uint256 _price, uint256 _minimumOrder) public onlyManager {
-        require(!started, "already started");
-        unlocksOn = _unlocksOn;
-        endsOn = _endsOn;
-        unitPrice = _price;
-        minimumOrder = _minimumOrder;
-        started = true;
-    }
-
-    /** @notice The amount of LK3R remaining */
-    function remaining() public view returns (uint256) {
-        return LK3R.balanceOf(address(this));
-    }
-
-    /** @notice purchase LK3R at the current unit price */
-    function purchase() public payable {
-        require(started, "token sale has not yet started");
-        require(msg.value > minimumOrder, "amount purchased is too small");
-        require(block.timestamp < endsOn, "presale has ended");
-
-        // calculate the amount of LK3R purchasable
-        uint256 _lk3r = calculateAmountPurchased(msg.value);
-        require(_lk3r <= LK3R.balanceOf(address(this)), "not enough LK3R left");
-
-        // update the users balance
-        balance[msg.sender] = balance[msg.sender].add(_lk3r);
-        totalSold = totalSold.add(_lk3r);
-        weiRaised = weiRaised.add(msg.value);
-
-        emit Purchase(msg.sender, _lk3r, msg.value);
-    }
-
-    /** @notice calculates the amount purchasedfor a given amount of eth */
-    function calculateAmountPurchased(uint256 _value) public view returns (uint256) {
-
-        uint256 _lk3r = _value.mul(BP).div(unitPrice).mul(1e18).div(BP);
-
-        if (_value > bonusTrigger) {
-            uint256 _bonus = _lk3r.mul(bonusPercentage).div(10000);
-            if (_lk3r.add(_bonus) <= LK3R.balanceOf(address(this))) {
-                _lk3r = _lk3r.add(_bonus);
-            }
+        if (quotientTimesTen % 10 >= 5) {
+            quotientTimesTen += 10;
         }
-        
-        return _lk3r;
+
+        return quotientTimesTen / 10;
     }
 
-    /** @notice claim your eth */
-    function claim() public {
-        require(block.timestamp > unlocksOn, "presale has not unlocked yet");
-        require(balance[msg.sender] > 0, "nothing to withdraw");
-        uint256 bal = balance[msg.sender];
-        balance[msg.sender] = 0;
-        LK3R.transfer(msg.sender, bal);
-        totalSettled = totalSettled.add(bal);
+    /**
+     * @return The result of safely multiplying x and y, interpreting the operands
+     * as fixed-point decimals of a precise unit.
+     *
+     * @dev The operands should be in the precise unit factor which will be
+     * divided out after the product of x and y is evaluated, so that product must be
+     * less than 2**256.
+     *
+     * Unlike multiplyDecimal, this function rounds the result to the nearest increment.
+     * Rounding is useful when you need to retain fidelity for small decimal numbers
+     * (eg. small fractions or percentages).
+     */
+    function multiplyDecimalRoundPrecise(uint x, uint y) internal pure returns (uint) {
+        return _multiplyDecimalRound(x, y, PRECISE_UNIT);
     }
 
-    // fallbacks to allow users to send to the contract to purchase LK3R
-    receive() external payable { purchase(); }
-    fallback() external payable { purchase(); }
+    /**
+     * @return The result of safely multiplying x and y, interpreting the operands
+     * as fixed-point decimals of a standard unit.
+     *
+     * @dev The operands should be in the standard unit factor which will be
+     * divided out after the product of x and y is evaluated, so that product must be
+     * less than 2**256.
+     *
+     * Unlike multiplyDecimal, this function rounds the result to the nearest increment.
+     * Rounding is useful when you need to retain fidelity for small decimal numbers
+     * (eg. small fractions or percentages).
+     */
+    function multiplyDecimalRound(uint x, uint y) internal pure returns (uint) {
+        return _multiplyDecimalRound(x, y, UNIT);
+    }
+
+    /**
+     * @return The result of safely dividing x and y. The return value is a high
+     * precision decimal.
+     *
+     * @dev y is divided after the product of x and the standard precision unit
+     * is evaluated, so the product of x and UNIT must be less than 2**256. As
+     * this is an integer division, the result is always rounded down.
+     * This helps save on gas. Rounding is more expensive on gas.
+     */
+    function divideDecimal(uint x, uint y) internal pure returns (uint) {
+        /* Reintroduce the UNIT factor that will be divided out by y. */
+        return x.mul(UNIT).div(y);
+    }
+
+    /**
+     * @return The result of safely dividing x and y. The return value is as a rounded
+     * decimal in the precision unit specified in the parameter.
+     *
+     * @dev y is divided after the product of x and the specified precision unit
+     * is evaluated, so the product of x and the specified precision unit must
+     * be less than 2**256. The result is rounded to the nearest increment.
+     */
+    function _divideDecimalRound(
+        uint x,
+        uint y,
+        uint precisionUnit
+    ) private pure returns (uint) {
+        uint resultTimesTen = x.mul(precisionUnit * 10).div(y);
+
+        if (resultTimesTen % 10 >= 5) {
+            resultTimesTen += 10;
+        }
+
+        return resultTimesTen / 10;
+    }
+
+    /**
+     * @return The result of safely dividing x and y. The return value is as a rounded
+     * standard precision decimal.
+     *
+     * @dev y is divided after the product of x and the standard precision unit
+     * is evaluated, so the product of x and the standard precision unit must
+     * be less than 2**256. The result is rounded to the nearest increment.
+     */
+    function divideDecimalRound(uint x, uint y) internal pure returns (uint) {
+        return _divideDecimalRound(x, y, UNIT);
+    }
+
+    /**
+     * @return The result of safely dividing x and y. The return value is as a rounded
+     * high precision decimal.
+     *
+     * @dev y is divided after the product of x and the high precision unit
+     * is evaluated, so the product of x and the high precision unit must
+     * be less than 2**256. The result is rounded to the nearest increment.
+     */
+    function divideDecimalRoundPrecise(uint x, uint y) internal pure returns (uint) {
+        return _divideDecimalRound(x, y, PRECISE_UNIT);
+    }
+
+    /**
+     * @dev Convert a standard decimal representation to a high precision one.
+     */
+    function decimalToPreciseDecimal(uint i) internal pure returns (uint) {
+        return i.mul(UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR);
+    }
+
+    /**
+     * @dev Convert a high precision decimal to a standard decimal representation.
+     */
+    function preciseDecimalToDecimal(uint i) internal pure returns (uint) {
+        uint quotientTimesTen = i / (UNIT_TO_HIGH_PRECISION_CONVERSION_FACTOR / 10);
+
+        if (quotientTimesTen % 10 >= 5) {
+            quotientTimesTen += 10;
+        }
+
+        return quotientTimesTen / 10;
+    }
+}
+
+contract IERC20 {
+    function totalSupply() external view returns (uint256);
+
+    function balanceOf(address account) external view returns (uint256);
+
+    function transfer(address recipient, uint256 amount)
+        external
+        returns (bool);
+
+    function allowance(address owner, address spender)
+        external
+        view
+        returns (uint256);
+
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    function transferFrom(address sender, address recipient, uint256 amount)
+        external
+        returns (bool);
+
+    function mint(address account, uint256 amount) public returns (bool);
+
+    function burn(uint256 amount) public returns (bool);
+}
+
+
+contract LK3R_Presale is Ownable {
+    address private LK3RCoinddress;
+    uint256 private price;
+    address private messenger;
+
+    using SafeMath for uint256;
+using SafeDecimalMath for uint;
+    constructor(address _LK3RCoinddress, uint256 _initialPrice) public {
+        LK3RCoinddress = _LK3RCoinddress;
+        price = _initialPrice;
+        emit Deployed(_initialPrice, _LK3RCoinddress);
+    }
+
+    event bought(address _buyer, uint256 _paid, uint256 _given, uint _price);
+    event priceChanged(address initiator, uint256 _from, uint256 _to);
+    event messengerChanged(address _from, address _to);
+    event Deployed(uint256 _initialPrice, address _LK3RCoinddress);
+    modifier onlyMessenger() {
+        require(msg.sender == messenger, "caller is not a messenger");
+        _;
+    }
+
+    function updatePrice(uint256 _price) public onlyMessenger {
+        uint256 currentprice = price;
+        price = _price;
+        emit priceChanged(msg.sender, currentprice, _price);
+    }
+
+    function setMessenger(address _messenger) public onlyOwner {
+        address currentMessenger = messenger;
+        messenger = _messenger;
+        emit messengerChanged(currentMessenger, _messenger);
+    }
+
+    function setLK3RCoin(address _LK3RCoinddress) public onlyOwner {
+        LK3RCoinddress = _LK3RCoinddress;
+    }
+
+    function getPrice() public view returns (uint256 _price) {
+        return price;
+    }
+
+    function buyer() public payable {
+        require(msg.value > 0, "Invalid amount");
+        uint256 amount = msg.value; //.mul(10**18);
+        IERC20 LK3RCoin = IERC20(LK3RCoinddress);
+        uint256 amountToSend = amount.divideDecimal(price).multiplyDecimal(10**18);
+        require(
+            LK3RCoin.transfer(msg.sender, amountToSend),
+            "Fail to send fund"
+        );
+        emit bought(msg.sender, msg.value, amountToSend, price);
+    }
+
+    function withdrawAllEtherByOwner() public onlyOwner {
+        msg.sender.transfer(address(this).balance);
+    }
+
+    function getContractEtherBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
 }
